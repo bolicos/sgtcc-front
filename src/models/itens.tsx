@@ -19,12 +19,8 @@ export interface Teacher {
     cost: number;
 }
 
-export interface Class {
-    name: string;
-    avatar: string;
-    whatsapp: string;
-    bio: string;
-    subject: string;
-    cost: string;
-    schedules: Array<ScheduleItem>;
+export interface Proposal {
+    author?: number;
+    leader?: number;
+    title: string;
 }

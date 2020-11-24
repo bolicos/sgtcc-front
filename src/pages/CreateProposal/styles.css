@@ -1,13 +1,13 @@
-#page-teacher-form {
+#page-create-proposal {
     width: 100vw;
     height: 100vh;
 }
 
-#page-teacher-form .page-header .header-content {
+#page-create-proposal .page-header .header-content {
     margin-bottom: 6.3rem;
 }
 
-#page-teacher-form main {
+#page-create-proposal main {
     background: var(--color-box-base);
     width: 100%;
     max-width: 74rem;
@@ -17,25 +17,25 @@
     overflow: hidden;
 }
 
-#page-teacher-form main label {
+#page-create-proposal main label {
     color: var(--color-text-complement);
 }
 
-#page-teacher-form main fieldset {
+#page-create-proposal main fieldset {
     border: 0;
     padding: 0 2.4rem;
 }
 
-#page-teacher-form main fieldset .input-block + .textarea-block,
-#page-teacher-form main fieldset .select-block + .input-block {
+#page-create-proposal main fieldset .input-block + .textarea-block,
+#page-create-proposal main fieldset .select-block + .input-block {
     margin-top: 2.4rem;
 }
 
-#page-teacher-form main fieldset + fieldset {
+#page-create-proposal main fieldset + fieldset {
     margin-top: 6.4rem;
 }
 
-#page-teacher-form main fieldset legend {
+#page-create-proposal main fieldset legend {
     font: 700 2.4rem Archivo;
     color: var(--color-text-title);
     margin-bottom: 2.4rem;
@@ -47,7 +47,7 @@
     border-bottom: 1px solid var(--color-line-in-white);
 }
 
-#page-teacher-form main fieldset legend button {
+#page-create-proposal main fieldset legend button {
     background: none;
     border: 0;
     color: var(--color-primary);
@@ -56,18 +56,18 @@
     transition: color 0.2s;
 }
 
-#page-teacher-form main fieldset legend button:hover {
+#page-create-proposal main fieldset legend button:hover {
     color: var(--color-primary-dark);
 }
 
-#page-teacher-form main footer {
+#page-create-proposal main footer {
     padding: 4rem 2.4rem;
     background: var(--color-box-footer);
     border-top: 1px solid var(--color-line-in-white);
     margin-top: 6.4rem;
 }
 
-#page-teacher-form main footer p {
+#page-create-proposal main footer p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,42 +76,42 @@
     color: var(--color-text-complement);
 }
 
-#page-teacher-form main footer img {
+#page-create-proposal main footer img {
     margin-right: 2rem;
 }
 
 @media(min-width: 700px) {
-    #page-teacher-form {
+    #page-create-proposal {
         max-width: 100vw;
     }
 
-    #page-teacher-form .page-header .header-content {
+    #page-create-proposal .page-header .header-content {
         margin-bottom: 0;
     }
 
-    #page-teacher-form main fieldset {
+    #page-create-proposal main fieldset {
         padding: 0 6.4rem;
 
     }
 
-    #page-teacher-form main .schedule-item {
+    #page-create-proposal main .schedule-item {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
         column-gap: 1.6rem;
     }
 
-    #page-teacher-form main .schedule-item .input-block {
+    #page-create-proposal main .schedule-item .input-block {
         margin-top: 0 !important;
     }
 
-    #page-teacher-form main footer {
+    #page-create-proposal main footer {
         padding: 4rem 6.4rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    #page-teacher-form main footer p {
+    #page-create-proposal main footer p {
         justify-content: space-between;
     }
 }
