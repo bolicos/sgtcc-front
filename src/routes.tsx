@@ -1,17 +1,15 @@
-import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import Landing from './pages/Landing'
-import TeacherList from './pages/TeacherList'
-import CreateProposal from './pages/CreateProposal'
+import React, { lazy, Suspense } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { ROUTES, BASE_URL } from '#/constants'
 
-function Routes() {
-    return (
-        <BrowserRouter>
-            <Route path="/" exact component={Landing} />
-            <Route path="/study" component={TeacherList} />
-            <Route path="/create-proposal" component={CreateProposal} />
-        </BrowserRouter>
-    )
-}
+const HomePage = lazy(() => import("#/pages/Home"));
 
-export default Routes;
+export const Routes: React.FC = () => (
+    <BrowserRouter basename={BASE_URL}>
+    <Suspense fallback="Loading...">
+      <Switch>
+        <Route exact path={ROUTES.HOME()} component={HomePage} />
+      </Switch>
+    </Suspense>
+  </BrowserRouter>
+);

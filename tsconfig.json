@@ -1,4 +1,12 @@
 {
+  "extends": "./config/typescript.json",
+  "compilerConfig": {
+    "lib": [
+      "dom",
+      "es2015",
+      "esnext"
+    ]
+  },
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -12,12 +20,13 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
   "include": [
     "src"
