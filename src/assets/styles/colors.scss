@@ -1,0 +1,21 @@
+$background_color: #121214;
+$primary_color: #9466FF;
+$secondary_color: #73737D;
+$secondary_dark_color: #41414D;
+
+$success_color: #319688;
+$error_color: #F30106;
+$danger_color: #F30106;
+$warning_color: #DFC168;
+
+:export {
+    background_color: $background_color;
+    primary_color: $primary_color;
+    secondary_color: $secondary_color;
+    secondary_dark_color: $secondary_dark_color;
+
+    success_color: $success_color;
+    error_color: $error_color;
+    danger_color: $danger_color;
+    warning_color: $warning_color;
+}

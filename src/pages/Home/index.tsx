@@ -11,6 +11,7 @@ export const Home: React.FC = () => {
                 : <Fragment>
                     <div>
                         <h1 className={styles["title"]}>Home</h1>
+                        <p>Paragrafo</p>
                     </div>
                 </Fragment>
             }
