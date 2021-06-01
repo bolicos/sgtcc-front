@@ -1,6 +1,10 @@
 export const ROUTES = {
     HOME: () => "/",
-    LOGIN: () => "/login"
+    SIGNIN: () => "/signin",
+    SIGNUP: () => "/signup",
+    SIGNOUT: () => "/signout",
+    NOT_FOUND: () => "/not-found",
+    DASHBOARD: () => "/dashboard"
   };
   
   export const BASE_URL: string = process.env.PUBLIC_URL || "";

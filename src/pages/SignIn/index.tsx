@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import styles from './styles.module.scss'
 
-export const Login: React.FC = () => {
+export const SignIn: React.FC = () => {
     const [isLoading, setLoading] = useState(false);
 
     return (
@@ -10,7 +10,7 @@ export const Login: React.FC = () => {
                 ? <p>Loading</p>
                 : <Fragment>
                     <div>
-                        <h1 className={styles["title"]}>Login</h1>
+                        <h1 className={styles["title"]}>SignIn</h1>
                     </div>
                 </Fragment>
             }
@@ -18,4 +18,4 @@ export const Login: React.FC = () => {
     );
 }
 
-export default Login;
+export default SignIn;
