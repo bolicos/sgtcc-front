@@ -1,10 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Config
+You must have installed [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable).
+
+## Install
+Clone this repository:
+`git clone https://github.com/analuciabolico/sgtcc-front.git`
+
+In the project directory, install the dependencies:
+`yarn install`
+
 ## Available Scripts
 
-In the project directory, you can run:
-
-### `yarn start`
+Run the application:
+`yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
