@@ -1,22 +1,32 @@
-import React, { Fragment, useState } from 'react'
+import React from 'react'
+import { Row, Col, Container, Button } from "react-bootstrap"
 import styles from './styles.module.scss'
 
 export const Home: React.FC = () => {
-    const [isLoading, setLoading] = useState(false);
-
-    return (
-        <>
-            {isLoading
-                ? <p>Loading</p>
-                : <Fragment>
-                    <div>
-                        <h1 className={styles["title"]}>Home</h1>
-                        <p>Paragrafo</p>
-                    </div>
-                </Fragment>
-            }
-        </>
-    );
+  return(
+    <Container>
+      <Row>
+        <h1 id={styles["logo-tcc"]}>SgTCC</h1>
+      </Row>
+      <Row>
+        <h2>Sistema de Gerenciamento de TCC</h2>
+      </Row>
+      <div className="buttons-home">
+        <Row>
+          <Col sm={2}>
+            <Button variant="secondary" size="lg">
+              Signin
+            </Button>
+          </Col>
+          <Col sm={2}>
+            <Button variant="success" size="lg">
+              Signup
+            </Button>
+          </Col>
+        </Row>
+      </div>
+    </Container>
+  )
 }
 
 export default Home;
