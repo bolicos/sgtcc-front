@@ -1,7 +1,7 @@
-import React, { Fragment, StrictMode } from 'react'
-import { hot } from 'react-hot-loader/root'
-import { Routes } from '#/routes'
-import '#/assets/styles/global.scss'
+import React, { Fragment, StrictMode } from "react"
+import { hot } from "react-hot-loader/root"
+import { Routes } from "#/routes"
+import "#/assets/styles/global.scss"
 
 export const App: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
-import "bootstrap/dist/css/bootstrap.css"
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
+import React from "react"
+import ReactDOM from "react-dom"
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import App from "./App"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,3 +9,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.unregister();

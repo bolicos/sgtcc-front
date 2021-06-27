@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col, Container, Button } from "react-bootstrap"
+import { ROUTES } from "#/constants"
 import styles from './styles.module.scss'
 
 export const Home: React.FC = () => {
@@ -14,7 +15,7 @@ export const Home: React.FC = () => {
       <div className="buttons-home">
         <Row>
           <Col sm={2}>
-            <Button variant="secondary" size="lg">
+            <Button variant="secondary" size="lg" href={ROUTES.SIGNIN()}>
               Signin
             </Button>
           </Col>
