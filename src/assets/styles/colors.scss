@@ -1,21 +1,49 @@
-$background_color: #121214;
-$primary_color: #9466FF;
-$secondary_color: #73737D;
-$secondary_dark_color: #41414D;
+$backgroundColor: #f0f0f7 !default;
+$primaryLighterColor: #9871f5 !default;
+$primaryLightColor: #916bea !default;
+$primaryColor: #8257e5 !default;
+$primaryDarkColor: #774dd6 !default;
+$primaryDarkerColor: #6842c2 !default;
+$secondaryColor: #04d361 !default;
+$secondaryDarkColor: #04bf58 !default;
+$titlePrimaryColor: #ffffff !default;
+$textPrimaryColor: #d4c2ff !default;
+$textTitleColor: #32264d !default;
+$textComplementColor: #9c98a6 !default;
+$textBaseColor: #6a6180 !default;
+$lineWhiteColor: #e6e6f0 !default;
+$inputBackgroundColor: #f8f8fc !default;
+$buttonTextColor: #ffffff !default;
+$boxBaseColor: #ffffff !default;
+$boxFooterColor: #fafafc !default;
 
-$success_color: #319688;
-$error_color: #F30106;
-$danger_color: #F30106;
-$warning_color: #DFC168;
+$successColor: #319688 !default;
+$errorColor: #f30106 !default;
+$dangerColor: #f30106 !default;
+$warningColor: #dfc168 !default;
 
 :export {
-    background_color: $background_color;
-    primary_color: $primary_color;
-    secondary_color: $secondary_color;
-    secondary_dark_color: $secondary_dark_color;
+    backgroundColor: $backgroundColor;
+    primaryLighterColor: $primaryLighterColor;
+    primaryLightColor: $primaryLightColor;
+    primaryColor: $primaryColor;
+    primaryDarkColor: $primaryDarkColor;
+    primaryDarkerColor: $primaryDarkerColor;
+    secondaryColor: $secondaryColor;
+    secondaryDarkColor: $secondaryDarkColor;
+    titlePrimaryColor: $titlePrimaryColor;
+    textPrimaryColor: $textPrimaryColor;
+    textTitleColor: $textTitleColor;
+    textComplementColor: $textComplementColor;
+    textBaseColor: $textBaseColor;
+    lineWhiteColor: $lineWhiteColor;
+    inputBackgroundColor: $inputBackgroundColor;
+    buttonTextColor: $buttonTextColor;
+    boxBaseColor: $boxBaseColor;
+    boxFooterColor: $boxFooterColor;
 
-    success_color: $success_color;
-    error_color: $error_color;
-    danger_color: $danger_color;
-    warning_color: $warning_color;
+    success_colorColor: $successColor;
+    error_colorColor: $errorColor;
+    danger_colorColor: $dangerColor;
+    warning_colorColor: $warningColor;
 }

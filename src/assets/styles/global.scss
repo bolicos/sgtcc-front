@@ -2,53 +2,61 @@
 @import "#/assets/styles/typography.scss";
 @import "#/assets/styles/responsive.scss";
 
+$z-index: (
+  modal: 10,
+  select: 20,
+  tooltip: 20,
+  datepicker: 20,
+  dropdown: 20,
+  loader: 40,
+  toast: 50,
+);
+
 $borderRadius: 4px;
 $baseline: 8px;
 
-$z-index: (
-    modal: 10,
-    select: 20,
-    tooltip: 20,
-    datepicker: 20,
-    dropdown: 20,
-    loader: 40,
-    toast: 50,
-);
+// fonf-size, line-height, font-family
+$fontLogo: $typographyWeightBold 7.4rem $typographyFamilyLogo;
+$fontTitle: $typographyWeightBold 7.4rem $typographyFamilyHeader;
+$fontSubtitle: $typographyWeightBold 7.4rem $typographyFamilyHeader;
+$fontText: $typographyWeightMedium 1.6rem $typographyFamilyText;
 
-$background: $background_color !default;
-$primary: $primary_color !default;
-$secondary: $secondary_color !default;
-$secondary_dark: $secondary_dark_color !default;
-$success: $success_color !default;
-$error: $error_color !default;
-$danger: $danger_color !default;
-$warning: $warning_color !default;
-
+// Export for the other sccs
 :export {
-    error: $error;
-    danger: $danger;
-    success: $success;
-    warning: $warning;
-    primary: $primary;
-    baseline: $baseline;
-    secondary: $secondary;
-    borderRadius: $borderRadius;
+  baseline: $baseline;
+  borderRadius: $borderRadius;
+
+  fontLogo: $fontLogo;  
+  fontTitle: $fontTitle;  
+  fontSubtitle: $fontSubtitle;  
+  fontText: $fontText;  
 }
+
+// ---------------------------------------------------
+
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
+// The index HTML - General formatation
 #root {
-    color: white;
-    background-color: $background;
-    height: 100vh;
-    width: 100vw;
+  font-size: 60%;
+  background-color: $primaryColor;
+  height: 100vh;
+  width: 100vw;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: $fontText;
+  color: $textPrimaryColor;
 }

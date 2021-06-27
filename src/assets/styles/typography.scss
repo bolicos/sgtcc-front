@@ -1,6 +1,6 @@
-$typographyFamilyLogo: "Horatio D", sans-serif !default;
-$typographyFamilyHeader: "Big Shoulders Display", sans-serif !default;
-$typographyFamilyText: "Montserrat", sans-serif !default;
+$typographyFamilyLogo: "Caveat", sans-serif !default;
+$typographyFamilyHeader: "Archivo", sans-serif !default;
+$typographyFamilyText: "Poppins", sans-serif !default;
 
 $typographySizeXSmall: 12px !default;
 $typographySizeSmall: 14px !default;
@@ -13,7 +13,7 @@ $typographySizeXXXLarge: 40px !default;
 $typographyWeightExtraLight: 200 !default;
 $typographyWeightLight: 300 !default;
 $typographyWeightNormal: 400 !default;
-$typographyWeightSemiBold: 500 !default;
+$typographyWeightMedium: 500 !default;
 $typographyWeightBold: 700 !default;
 
 /* stylelint-disable */
@@ -33,6 +33,6 @@ $typographyWeightBold: 700 !default;
   typographyWeightExtraLight: $typographyWeightExtraLight;
   typographyWeightLight: $typographyWeightLight;
   typographyWeightNormal: $typographyWeightNormal;
-  typographyWeightSemiBold: $typographyWeightSemiBold;
+  typographyWeightMedium: $typographyWeightMedium;
   typographyWeightBold: $typographyWeightBold;
 }

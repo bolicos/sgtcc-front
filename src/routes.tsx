@@ -1,7 +1,8 @@
-import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
-import { ROUTES, BASE_URL } from '#/constants'
+import React, { lazy, Suspense } from "react"
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"
+import { ROUTES, BASE_URL } from "#/constants"
 import { isAuthenticated } from "#/helpers/auth";
+import { Loading } from "#/components/Loading";
 
 const HomePage = lazy(() => import("#/pages/Home"));
 const SignInPage = lazy(() => import("#/pages/SignIn"));
@@ -20,7 +21,7 @@ const PrivateRoute = ({isAuthenticated, component, ...rest}: any) => {
 
 export const Routes: React.FC = () => (
   <BrowserRouter basename={BASE_URL}>
-    <Suspense fallback="Loading...">
+    <Suspense fallback={Loading}>
       <Switch>
         <Route exact path={ROUTES.HOME()} component={HomePage} />
         <Route exact path={ROUTES.SIGNIN()} component={SignInPage} />
