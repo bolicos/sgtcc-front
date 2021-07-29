@@ -9,6 +9,7 @@ const SignInPage = lazy(() => import("#/pages/SignIn"));
 const SignOutPage = lazy(() => import("#/pages/SignOut"));
 const SignUpPage = lazy(() => import("#/pages/SignUp"));
 const NotFoundPage = lazy(() => import("#/pages/NotFound"));
+const CreateProposalPage = lazy(() => import("#/pages/Proposal/Create"));
 
 const PrivateRoute = ({isAuthenticated, component, ...rest}: any) => {
   const routeComponent = (props: any) => (
@@ -28,6 +29,7 @@ export const Routes: React.FC = () => (
         <Route exact path={ROUTES.SIGNOUT()} component={SignOutPage} />
         <Route exact path={ROUTES.SIGNUP()} component={SignUpPage} />
         <Route exact path={ROUTES.NOT_FOUND()} component={NotFoundPage} />
+        <Route exact path={ROUTES.CREATE_PROPOSAL()} component={CreateProposalPage} />
         <PrivateRoute exact path={ROUTES.DASHBOARD()} isAuthenticated={isAuthenticated()} component={HomePage} />
       </Switch>
     </Suspense>

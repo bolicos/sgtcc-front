@@ -4,7 +4,8 @@ export const ROUTES = {
     SIGNUP: () => "/signup",
     SIGNOUT: () => "/signout",
     NOT_FOUND: () => "/not-found",
-    DASHBOARD: () => "/dashboard"
+    DASHBOARD: () => "/dashboard",
+    CREATE_PROPOSAL: () => "/proposals",
   };
   
   export const BASE_URL: string = process.env.PUBLIC_URL || "";

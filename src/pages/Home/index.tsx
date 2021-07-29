@@ -1,17 +1,13 @@
 import React from 'react'
 import { Row, Col, Container, Button } from "react-bootstrap"
+import PageHeader from "#/components/PageHeader";
 import { ROUTES } from "#/constants"
 import styles from './styles.module.scss'
 
 export const Home: React.FC = () => {
   return(
     <Container>
-      <Row>
-        <h1 id={styles["logo-tcc"]}>SgTCC</h1>
-      </Row>
-      <Row>
-        <h2>Sistema de Gerenciamento de TCC</h2>
-      </Row>
+      <PageHeader title="Sistema de Gerenciamento de TCC"/>
       <div className="buttons-home">
         <Row>
           <Col sm={2}>
