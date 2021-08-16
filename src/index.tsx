@@ -8,10 +8,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Routes/>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
-Mirage();
+if(process.env.NODE_ENV !== "production")
+  Mirage();
 
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.unregister();

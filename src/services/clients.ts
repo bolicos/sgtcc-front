@@ -3,7 +3,7 @@ import { WEB_APP } from "#/constants";
 
 export interface Response<T = any> extends AxiosResponse<T> { }
 
-export const CLIENTS_BASE_URLS = {
+export const CLIENTS_BASE_URLS = { 
   SGTCC: () => WEB_APP.API_BASE_URL,
   AUTH: () => WEB_APP.API_AUTH_URL,
 };
