@@ -8,11 +8,6 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
-  "babel": {
-    "plugins": [
-      "react-hot-loader/babel"
-    ]
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -21,32 +16,32 @@
   },
   "config-overrides-path": "config/configuration.js",
   "dependencies": {
-    "@hot-loader/react-dom": "^17.0.1",
     "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
+    "miragejs": "^0.1.41",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "react-scripts": "4.0.3",
+    "sanitize.css": "^12.0.1",
+    "web-vitals": "^1.1.2"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^13.1.9",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.4",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
-    "@types/react-router-dom": "^5.1.7",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.8",
     "customize-cra": "^1.0.0",
     "node-sass": "^6.0.1",
     "react-app-rewired": "^2.1.8",
-    "react-hot-loader": "^4.13.0",
-    "react-scripts": "^4.0.3",
-    "typescript": "^4.3.4",
+    "typescript": "^4.3.5",
     "webpack-bundle-analyzer": "^4.4.2"
   },
   "browserslist": {

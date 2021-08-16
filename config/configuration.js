@@ -12,7 +12,6 @@ module.exports = {
     addWebpackAlias({
       "~": path.resolve(__dirname, ".."),
       "#": path.resolve(__dirname, "../src"),
-      "react-dom": "@hot-loader/react-dom",
     }),
     addBundleVisualizer({}, true)
   ),

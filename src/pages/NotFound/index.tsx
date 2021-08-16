@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import styles from './styles.module.scss'
 
 export const NotFound: React.FC = () => {
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading] = useState(false);
 
     return (
         <>

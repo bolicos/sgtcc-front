@@ -2,10 +2,9 @@ import React from 'react'
 import { Row, Col, Container, Button } from "react-bootstrap"
 import PageHeader from "#/components/PageHeader";
 import { ROUTES } from "#/constants"
-import styles from './styles.module.scss'
 
 export const Home: React.FC = () => {
-  return(
+  return (
     <Container>
       <PageHeader title="Sistema de Gerenciamento de TCC"/>
       <div className="buttons-home">
@@ -13,6 +12,16 @@ export const Home: React.FC = () => {
           <Col sm={2}>
             <Button variant="secondary" size="lg" href={ROUTES.SIGNIN()}>
               Signin
+            </Button>
+          </Col>
+          <Col sm={2}>
+            <Button variant="secondary" size="lg" href={ROUTES.TEACHER_CREATE()}>
+              Registrar professor
+            </Button>
+          </Col>
+          <Col sm={2}>
+            <Button variant="secondary" size="lg" href={ROUTES.STUDENT_CREATE()}>
+              Registrar aluno
             </Button>
           </Col>
           <Col sm={2}>

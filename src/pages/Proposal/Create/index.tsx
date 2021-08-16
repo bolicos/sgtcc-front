@@ -1,66 +1,65 @@
-import React, { useEffect, useState, useCallback } from 'react'
-import { Row, Col, Container, Button, Form } from "react-bootstrap"
-import PageHeader from "#/components/PageHeader"
-import { ROUTES } from "#/constants"
-import styles from './styles.module.scss'
-import api from '#/services/api'
+import React, { useEffect, useState, useCallback } from "react";
+import { Row, Col, Container, Button, Form, Spinner } from "react-bootstrap";
+import PageHeader from "#/components/PageHeader";
+import { ROUTES } from "#/constants";
+import { API } from "#/services/sgtcc";
+import { StudentDetailsModel, TeacherDetailsModel } from "#/models/sgtcc";
 
-// interface State {
-//   loading: boolean;
-//   students: Array<Student>;
-// };
+interface State {
+  loading: boolean;
+  title: string;
+  students: Array<StudentDetailsModel>;
+  teachers: Array<TeacherDetailsModel>;
+}
 
 export const Create: React.FC = () => {
-  // const [students, setStudents] = useState([]);
+  const [state, setState] = useState<State>({
+    loading: true,
+    title: "Criar Proposta",
+    students: [],
+    teachers: [],
+  });
 
-  // const fetchStudents = useCallback(async () => {
-  //   setStudents((prev) => ({ ...prev, loading: true }));
-    
-  //   api
-  //     .get("/students")
-  //     .then((response) => { setStudents((prev) => ({ ...prev, students: response }));
-  //   }).catch((exception) => {
-  //     console.log('Algo deu errado, erro: ', exception);
-  //   }).finally(() => {
-  //     setStudents((prev) => ({ ...prev, loading: false }));
-  //   });
-  // }, [students]);
-
-  // useEffect(() => {
-  //   fetchStudents();
-  // },[fetchStudents]);
-
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    api
-      .get("/students")
-      .then((response) => setStudents(response.data));
+  const fetchStudents = useCallback(async () => {
+    API.student_list()
+      .then((response) => {
+        const students: Array<StudentDetailsModel> = response.data;
+        setState((prev) => ({ ...prev, students: students }));
+      })
+      .catch((exception) => {
+        console.log("Algo deu errado, erro: ", exception);
+        throw new Error(exception.message);
+      })
+      .finally(() => {
+        setState((prev) => ({ ...prev, loading: false }));
+      });
   }, []);
 
+  const fetchTeachers = useCallback(async () => {
+    API.teacher_list()
+      .then((response) => {
+        const teachers: Array<TeacherDetailsModel> = response.data;
+        setState((prev) => ({ ...prev, teachers: teachers }));
+      })
+      .catch((exception) => {
+        console.log("Algo deu errado, erro: ", exception);
+        throw new Error(exception.message);
+      })
+      .finally(() => {
+        setState((prev) => ({ ...prev, loading: false }));
+      });
+  }, []);
 
-  // const [teachers, setTeachers] = useState([]);
+  useEffect(() => {
+    fetchStudents();
+    fetchTeachers();
+  }, [fetchStudents, fetchTeachers]);
 
-  // const fetchTeachers = useCallback(async () => {
-  //   setTeachers((prev) => ({ ...prev, loading: true }));
-    
-  //   api
-  //     .get("/api/v1/teachers")
-  //     .then((response) => { setTeachers((prev) => ({ ...prev, teachers: response.data }));
-  //   }).catch((exception) => {
-  //     throw new Error(exception.message);
-  //   }).finally(() => {
-  //     setTeachers((prev) => ({ ...prev, loading: false }));
-  //   });
-  // }, [teachers]);
-
-  // useEffect(() => {
-  //   fetchTeachers();
-  // },[fetchTeachers]);
-
-  return(
+  return state.loading === true ? (
+    <Spinner animation="grow" />
+  ) : (
     <Container>
-      <PageHeader title="Criar Proposta"/>
+      <PageHeader title={state.title} />
       <Form>
         <Form.Group className="mb-3">
           <Form.Label>Título</Form.Label>
@@ -70,27 +69,20 @@ export const Create: React.FC = () => {
         <Form.Group controlId="proposal.author">
           <Form.Label> Selecione o Autor</Form.Label>
           <Form.Control as="select">
-            {students.map((student) => {
-              <option>student.name</option>
-            })}
+            {state.students.map((student) => (
+              <option>{student.name}</option>
+            ))}
           </Form.Control>
-        </Form.Group> 
+        </Form.Group>
 
-        {/* <Col>
-          <h3>{students}</h3>
-          {students.map((student) => {
-            <h3>student.name</h3>
-          })}
-        </Col> */}
-
-        {/* <Form.Group controlId="proposal.advisor">
+        <Form.Group controlId="proposal.advisor">
           <Form.Label> Selecione o Orientador</Form.Label>
           <Form.Control as="select">
-          {teachers?.map((teacher) => {
-              <option>teacher</option>
-            })}
+            {state.teachers?.map((teacher) => (
+              <option>{teacher.name}</option>
+            ))}
           </Form.Control>
-        </Form.Group>  */}
+        </Form.Group>
 
         <div className="buttons-home">
           <Row>
@@ -106,9 +98,9 @@ export const Create: React.FC = () => {
             </Col>
           </Row>
         </div>
-      </Form>  
+      </Form>
     </Container>
-  )
-}
+  );
+};
 
 export default Create;
