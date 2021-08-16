@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import Mirage from "#/services/mirage";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { Routes } from "./routes";
 
 ReactDOM.render(
