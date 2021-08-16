@@ -10,6 +10,14 @@ export const ROUTES = {
   HOME: () => "/",
   SIGNIN: () => "/sign-in",
   SIGNUP: () => "/sign-up",
+  REGISTER_TEACHER: () => "/register-teacher",
+  REGISTER_STUDENT: () => "/register-student",
+  TEACHER_DETAILS: (id: string) => `/teachers/${id}/details`,
+  EDIT_TEACHER: (id: string) => `/teachers/${id}/edit`,
+  STUDENT_DETAILS: (id: string) => `/students/${id}/details`,
+  EDIT_STUDENT: (id: string) => `/students/${id}/edit`,
+  PROPOSAL_DETAILS: (id: string) => `/proposals/${id}/details`,
+  EDIT_PROPOSAL: (id: string) => `/proposals/${id}/edit`,
   NOT_FOUND: () => "/not-found",
   DASHBOARD: () => "/dashboard"
 };

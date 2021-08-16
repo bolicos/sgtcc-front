@@ -4,7 +4,7 @@ import { ROUTES } from "#/constants"
 import styles from './styles.module.scss'
 
 export const Home: React.FC = () => {
-  return(
+  return (
     <Container>
       <Row>
         <h1 id={styles["logo-tcc"]}>SgTCC</h1>
@@ -17,6 +17,16 @@ export const Home: React.FC = () => {
           <Col sm={2}>
             <Button variant="secondary" size="lg" href={ROUTES.SIGNIN()}>
               Signin
+            </Button>
+          </Col>
+          <Col sm={2}>
+            <Button variant="secondary" size="lg" href={ROUTES.REGISTER_TEACHER()}>
+              Registrar professor
+            </Button>
+          </Col>
+          <Col sm={2}>
+            <Button variant="secondary" size="lg" href={ROUTES.REGISTER_STUDENT()}>
+              Registrar aluno
             </Button>
           </Col>
           <Col sm={2}>

@@ -3,21 +3,12 @@ import { Button, Form, Col } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { Loading } from "#/components/Loading";
+import { Loader } from "#/components/Loader";
 import { Container } from '#/components/Container';
 import { User } from '#/models/user';
-import styles from './styles.module.scss'
-
-type State = {
-    user: User;
-};
 
 export const SignIn: React.FC = () => {
-    const [isLoading, setLoading] = useState(false);
-
-    const [state, setState] = useState<State>({
-        user: {} as User
-    });
+    const [isLoading] = useState(false);
 
     const schema = Yup.object().shape({
         email: Yup.string().required("Preencha o campo para continuar."),
@@ -26,7 +17,6 @@ export const SignIn: React.FC = () => {
 
     const {
         errors,
-        setFieldValue,
         handleBlur,
         handleChange,
         handleSubmit,
@@ -54,7 +44,7 @@ export const SignIn: React.FC = () => {
     return (
         <>
             {isLoading
-                ? { Loading }
+                ? { Loader }
                 : <Container>
 
                     <h2>SignIn</h2>
