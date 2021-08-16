@@ -1,15 +1,17 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import App from "./App"
+import Mirage from "#/services/mirage";
+import { Routes } from "./routes";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Routes/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
+Mirage();
 
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.unregister();

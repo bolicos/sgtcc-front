@@ -1,11 +1,16 @@
+export const WEB_APP = {
+  NAME: process.env.REACT_APP_NAME,
+  ENVIRONMENT: process.env.REACT_APP_ENV,
+  BASE_URL: process.env.REACT_APP_BASE_URL,
+  API_BASE_URL: process.env.REACT_APP_API_BASE_URL,
+  BFF_BASE_URL: process.env.REACT_APP_BFF_BASE_URL,
+  API_AUTH_URL: process.env.REACT_APP_BFF_BASE_URL,
+};
+
 export const ROUTES = {
-    HOME: () => "/",
-    SIGNIN: () => "/signin",
-    SIGNUP: () => "/signup",
-    SIGNOUT: () => "/signout",
-    NOT_FOUND: () => "/not-found",
-    DASHBOARD: () => "/dashboard"
-  };
-  
-  export const BASE_URL: string = process.env.PUBLIC_URL || "";
-  export const API_BASE_URL: string = process.env.REACT_APP_BFF_URL || "";
+  HOME: () => "/",
+  SIGNIN: () => "/sign-in",
+  SIGNUP: () => "/sign-up",
+  NOT_FOUND: () => "/not-found",
+  DASHBOARD: () => "/dashboard"
+};
