@@ -1,8 +1,7 @@
 import React from 'react'
 import { Spinner } from "react-bootstrap"
-import styles from './styles.module.scss'
 
-export const Loading: React.FC = ({ children }) => {
+export const Loader: React.FC = ({ children }) => {
 
     return (
         <>
@@ -13,4 +12,4 @@ export const Loading: React.FC = ({ children }) => {
     );
 }
 
-export default Loading;
+export default Loader;

@@ -1,3 +1,3 @@
 export interface DefaultState {
-    pending: boolean;
+    loading: boolean;
   }
