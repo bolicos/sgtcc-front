@@ -30,6 +30,11 @@ export interface EditTeacherProps {
 
 export interface StudentDetailsProps {
     student: any;
+    columns?: GenericModel[];
+}
+
+export interface ListStudentsProps {
+    students: GenericModel[];
     columns: GenericModel[];
 }
 
