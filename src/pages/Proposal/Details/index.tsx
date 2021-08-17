@@ -8,7 +8,6 @@ import { API } from "#/services/sgtcc";
 import { ROUTES } from "#/constants";
 
 interface State extends DefaultState {
-  title: string;
   proposal: ProposalDetailsModel;
 }
 
@@ -21,7 +20,7 @@ export const ProposalDetails: React.FC = () => {
   });
 
   const proposalDetails = useCallback(() => {
-    API.proposal_details(id)
+    API.PROPOSAL.PROPOSAL_DETAILS(id)
       .then((response) => {
         const proposal: ProposalDetailsModel = response.data;
         setState((prev) => ({ ...prev, proposal: proposal }));
@@ -49,12 +48,8 @@ export const ProposalDetails: React.FC = () => {
             contentEditable={false}
             className="mb-3"
           >
-            <Form.Label>Título</Form.Label>
-            <Form.Control
-              type="text"
-              value={state.proposal.title}
-              disabled={true}
-            />
+            <Form.Label>Título:</Form.Label>
+            <Form.Control type="text" value={state.proposal.title} disabled />
           </Form.Group>
 
           <Form.Group
@@ -62,12 +57,13 @@ export const ProposalDetails: React.FC = () => {
             contentEditable={false}
             className="mb-3"
           >
-            <Form.Label>Autor</Form.Label>
+            <Form.Label>Autor:</Form.Label>
             <Form.Control
               type="text"
               value={state.proposal.author.name}
-              disabled={true}
+              disabled
             />
+            
           </Form.Group>
 
           <Form.Group
@@ -75,11 +71,11 @@ export const ProposalDetails: React.FC = () => {
             contentEditable={false}
             className="mb-3"
           >
-            <Form.Label>Orientador</Form.Label>
+            <Form.Label>Orientador:</Form.Label>
             <Form.Control
               type="text"
               value={state.proposal.leader.name}
-              disabled={true}
+              disabled
             />
           </Form.Group>
 
@@ -92,24 +88,17 @@ export const ProposalDetails: React.FC = () => {
             <Form.Control
               type="text"
               value={state.proposal.createdAt}
-              disabled={true}
+              disabled
             />
           </Form.Group>
 
-          <div className="buttons-proposal">
-            <Row>
-              <Col sm={2}>
-                <Button variant="secondary" size="lg" href={ROUTES.HOME()}>
-                  Cancelar
-                </Button>
-              </Col>
-              <Col sm={2}>
-                <Button variant="success" size="lg">
-                  Criar
-                </Button>
-              </Col>
-            </Row>
-          </div>
+          <Row className="justify-content-md-center">
+            <Col sm={2}>
+              <Button variant="secondary" size="lg" href={ROUTES.HOME()}>
+                Voltar
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </Container>
     </>

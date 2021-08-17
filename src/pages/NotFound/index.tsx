@@ -1,21 +1,29 @@
-import React, { Fragment, useState } from 'react'
-import styles from './styles.module.scss'
+import React, { useEffect, useState } from "react";
+import { Container, Spinner } from "react-bootstrap";
+import PageHeader from "#/components/PageHeader";
+import { DefaultState } from "#/models/default";
 
 export const NotFound: React.FC = () => {
-    const [isLoading] = useState(false);
+  const [state, setState] = useState<DefaultState>({
+    loading: true,
+    title: "Not Found",
+  });
 
-    return (
-        <>
-            {isLoading
-                ? <p>Loading</p>
-                : <Fragment>
-                    <div>
-                        <h1 className={styles["title"]}>NotFound</h1>
-                    </div>
-                </Fragment>
-            }
-        </>
-    );
-}
+  useEffect(() => {
+    setState((prev) => ({ ...prev, loading: false }));
+  }, []);
+
+  return (
+    <>
+      {state.loading ? (
+        <Spinner animation="grow" />
+      ) : (
+        <Container>
+          <PageHeader title={state.title} />
+        </Container>
+      )}
+    </>
+  );
+};
 
 export default NotFound;

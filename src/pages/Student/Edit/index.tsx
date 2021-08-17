@@ -8,7 +8,6 @@ import { GenericModel } from "#/models/props";
 import { API } from "#/services/sgtcc";
 
 interface State extends DefaultState {
-    title: string;
     student: EditStudentModel;
 }
 
@@ -26,7 +25,7 @@ export const EditStudent: React.FC = () => {
     ];
 
     const studentDetails = useCallback(() => {
-        API.student_details(id)
+        API.STUDENT.STUDENT_DETAILS(id)
             .then((response) => {
                 const student: StudentDetailsModel = response.data;
                 setState((old) => ({ ...old, student: student }));
@@ -40,7 +39,7 @@ export const EditStudent: React.FC = () => {
     }, [studentDetails]);
 
     const editStudent = useCallback((body: EditStudentModel) => {
-        API.edit_student(id, body)
+        API.STUDENT.STUDENT_EDIT(id, body)
             .then(() => {
                 setState((old) => ({ ...old }));
             })
