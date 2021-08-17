@@ -1,17 +1,12 @@
 import React from 'react'
 import { Row, Col, Container, Button } from "react-bootstrap"
+import PageHeader from "#/components/PageHeader";
 import { ROUTES } from "#/constants"
-import styles from './styles.module.scss'
 
 export const Home: React.FC = () => {
   return (
     <Container>
-      <Row>
-        <h1 id={styles["logo-tcc"]}>SgTCC</h1>
-      </Row>
-      <Row>
-        <h2>Sistema de Gerenciamento de TCC</h2>
-      </Row>
+      <PageHeader title="Sistema de Gerenciamento de TCC"/>
       <div className="buttons-home">
         <Row>
           <Col sm={2}>
@@ -20,12 +15,12 @@ export const Home: React.FC = () => {
             </Button>
           </Col>
           <Col sm={2}>
-            <Button variant="secondary" size="lg" href={ROUTES.REGISTER_TEACHER()}>
+            <Button variant="secondary" size="lg" href={ROUTES.TEACHER_CREATE()}>
               Registrar professor
             </Button>
           </Col>
           <Col sm={2}>
-            <Button variant="secondary" size="lg" href={ROUTES.REGISTER_STUDENT()}>
+            <Button variant="secondary" size="lg" href={ROUTES.STUDENT_CREATE()}>
               Registrar aluno
             </Button>
           </Col>

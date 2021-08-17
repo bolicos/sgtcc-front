@@ -15,6 +15,7 @@ export const ENDPOINTS = {
   PROPOSAL_DETAILS: (id: string) => `/api/v1/proposals/${id}`,
   TEACHER_LIST: () => "/api/v1/teachers",
   EDIT_PROPOSAL: (id: string) => `/api/v1/proposals/${id}`,
+  STUDENT_LIST: () => "/api/v1/students",
 };
 
 export const API = {
@@ -28,4 +29,5 @@ export const API = {
   proposal_details: (id: string): Object<ProposalDetailsModel> => client.get(ENDPOINTS.PROPOSAL_DETAILS(id)),
   teacher_list: (): List<TeacherDetailsModel> => client.get<Array<TeacherDetailsModel>>(ENDPOINTS.TEACHER_LIST()),
   edit_proposal: (id: string, body: EditProposalModel): Object<EditProposalModel> => client.put(ENDPOINTS.EDIT_PROPOSAL(id), body),
+  student_list: (): List<StudentDetailsModel> => client.get<Array<TeacherDetailsModel>>(ENDPOINTS.STUDENT_LIST()),
 };

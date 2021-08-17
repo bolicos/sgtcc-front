@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import Mirage from "#/services/mirage";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { Routes } from "./routes";
+import "#/assets/styles/global.scss"
 
 ReactDOM.render(
   <React.StrictMode>
