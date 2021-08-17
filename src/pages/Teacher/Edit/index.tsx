@@ -12,7 +12,7 @@ interface State extends DefaultState {
     teacher: EditTeacherModel;
 }
 
-export const EditTeacher: React.FC = () => {
+export const TeacherEdit: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [state, setState] = useState<State>({
         loading: true,
@@ -77,4 +77,4 @@ export const EditTeacher: React.FC = () => {
     );
 };
 
-export default EditTeacher;
+export default TeacherEdit;

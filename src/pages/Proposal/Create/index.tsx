@@ -16,7 +16,7 @@ interface State extends DefaultState {
   teachers: Array<TeacherDetailsModel>;
 }
 
-export const Create: React.FC = () => {
+export const ProposalCreate: React.FC = () => {
   const [show, setShow] = useState(false);
   const [state, setState] = useState<State>({
     loading: true,
@@ -194,4 +194,4 @@ export const Create: React.FC = () => {
   );
 };
 
-export default Create;
+export default ProposalCreate;

@@ -12,7 +12,7 @@ interface State extends DefaultState {
     proposal: EditProposalModel;
 }
 
-export const EditProposal: React.FC = () => {
+export const ProposalEdit: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [state, setState] = useState<State>({
         loading: true,
@@ -78,4 +78,4 @@ export const EditProposal: React.FC = () => {
     );
 };
 
-export default EditProposal;
+export default ProposalEdit;

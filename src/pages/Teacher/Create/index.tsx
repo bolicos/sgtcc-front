@@ -11,7 +11,7 @@ interface State extends DefaultState {
   teacher: TeacherModel;
 }
 
-export const RegisterTeacher: React.FC = () => {
+export const TeacherCreate: React.FC = () => {
   const [state, setState] = useState<State>({
     loading: false,
     title: "Registrar professor",
@@ -59,4 +59,4 @@ export const RegisterTeacher: React.FC = () => {
   );
 };
 
-export default RegisterTeacher;
+export default TeacherCreate;
