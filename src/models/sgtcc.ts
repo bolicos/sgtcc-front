@@ -1,3 +1,8 @@
+export enum Type {
+    PRE_EVALUATION = "Pré Avaliação",
+    FINAL_EVALUATION = "Avaliação Final"
+}
+
 export interface TitleModel {
     description: string;
     id: number;
@@ -9,14 +14,6 @@ export interface TeacherModel {
     cpf: string;
     email: string;
     idTitle: number;
-    name: string;
-    phone: string;
-    registration: string;
-}
-
-export interface StudentModel {
-    cpf: string;
-    email: string;
     name: string;
     phone: string;
     registration: string;
@@ -47,6 +44,14 @@ export interface EditTeacherModel {
         nomenclature: string;
         type: string;
     }
+}
+
+export interface StudentModel {
+    cpf: string;
+    email: string;
+    name: string;
+    phone: string;
+    registration: string;
 }
 
 export interface StudentDetailsModel {
@@ -111,6 +116,93 @@ export interface EditProposalModel {
         }
     }
     title: string;
+}
+
+export interface ExaminationModel {
+    approved: boolean;
+    language: string;
+    note: number;
+    observation: string;
+    presentation: string;
+    proposal: number;
+    relevance: string;
+    teacher: number;
+    textContent: string;
+    textStructure: string;
+    title: string;
+    type: Type
+}
+
+export interface ExaminationDetailsModel {
+    approved: boolean;
+    createdAt: string;
+    id: number;
+    language: string;
+    note: number;
+    observation: string;
+    presentation: string;
+    proposal: {
+        author: {
+            cpf: string;
+            createdAt: string;
+            email: string;
+            id: number;
+            name: string;
+            phone: string;
+            registration: string
+        };
+        createdAt: string;
+        id: number;
+        leader: {
+            cpf: string;
+            createdAt: string;
+            email: string;
+            id: number;
+            name: string;
+            phone: string;
+            registration: string;
+            title: {
+                description: string;
+                id: number;
+                nomenclature: string;
+                type: string
+            }
+        };
+        title: string
+    };
+    relevance: string;
+    teacher: {
+        cpf: string;
+        createdAt: string;
+        email: string;
+        id: number;
+        name: string;
+        phone: string;
+        registration: string;
+        title: {
+            description: string;
+            id: number;
+            nomenclature: string;
+            type: string
+        }
+    };
+    textContent: string;
+    textStructure: string;
+    title: string;
+    type: Type
+}
+
+export interface EditExaminationModel {
+    approved: boolean;
+    language: string;
+    note: number;
+    observation: string;
+    presentation: string;
+    relevance: string;
+    textContent: string;
+    textStructure: string;
+    title: string;
+    type: Type
 }
 
 

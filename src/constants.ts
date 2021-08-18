@@ -21,7 +21,11 @@ export const ROUTES = {
   STUDENT_DETAILS: (id: string) => `/students/${id}/details`,
   STUDENT_EDIT: (id: string) => `/students/${id}/edit`,
 
-  PROPOSAL_CREATE: () => "/proposals",  
+  PROPOSAL_CREATE: () => "/proposals",
   PROPOSAL_DETAILS: (id: string) => `/proposals/${id}/details`,
   PROPOSAL_EDIT: (id: string) => `/proposals/${id}/edit`,
+
+  EXAMINATION_CREATE: () => "/examinations",
+  EXAMINATION_DETAILS: (id: string) => `/examinations/${id}/details`,
+  EXAMINATION_EDIT: (id: string) => `/examinations/${id}/edit`,
 };
