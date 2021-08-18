@@ -24,4 +24,12 @@ export const ROUTES = {
   PROPOSAL_CREATE: () => "/proposals/new",  
   PROPOSAL_DETAILS: (id: string) => `/proposals/${id}/details`,
   PROPOSAL_EDIT: (id: string) => `/proposals/${id}/edit`,
+
+  EXAMINATION_CREATE: () => "/examinations/new",
+  EXAMINATION_DETAILS: (id: string) => `/examinations/${id}/details`,
+  EXAMINATION_EDIT: (id: string) => `/examinations/${id}/edit`,
+
+  BOARD_CREATE: () => "/boards/new",
+  BOARD_DETAILS: (id: string) => `/boards/${id}/details`,
+  BOARD_EDIT: (id: string) => `/boards/${id}/edit`,
 };
