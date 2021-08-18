@@ -8,12 +8,11 @@ import { GenericModel } from "#/models/props";
 import { API } from "#/services/sgtcc";
 
 interface State extends DefaultState {
-    title: string;
     teachers: TeacherDetailsModel[];
     proposal: EditProposalModel;
 }
 
-export const EditProposal: React.FC = () => {
+export const ProposalEdit: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [state, setState] = useState<State>({
         loading: true,
@@ -33,7 +32,7 @@ export const EditProposal: React.FC = () => {
     ];
 
     const teacherList = useCallback(() => {
-        API.teacher_list()
+        API.TEACHER.TEACHER_LIST()
             .then((response) => {
                 const teachers: TeacherDetailsModel[] = response.data;
                 setState((old) => ({ ...old, teachers: teachers }));
@@ -47,7 +46,7 @@ export const EditProposal: React.FC = () => {
     }, [teacherList]);
 
     const proposalDetails = useCallback(() => {
-        API.proposal_details(id)
+        API.PROPOSAL.PROPOSAL_DETAILS(id)
             .then((response) => {
                 const proposal: ProposalDetailsModel = response.data;
                 setState((old) => ({ ...old, proposal: proposal }));
@@ -61,7 +60,7 @@ export const EditProposal: React.FC = () => {
     }, [proposalDetails]);
 
     const editProposal = useCallback((body: EditProposalModel) => {
-        API.edit_proposal(id, body)
+        API.PROPOSAL.PROPOSAL_EDIT(id, body)
             .then(() => {
                 setState((old) => ({ ...old }));
             })
@@ -79,4 +78,4 @@ export const EditProposal: React.FC = () => {
     );
 };
 
-export default EditProposal;
+export default ProposalEdit;

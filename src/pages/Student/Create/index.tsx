@@ -7,11 +7,10 @@ import { GenericModel } from "#/models/props";
 import { API } from "#/services/sgtcc";
 
 interface State extends DefaultState {
-  title: string;
   student: StudentModel;
 }
 
-export const RegisterStudent: React.FC = () => {
+export const StudentCreate: React.FC = () => {
   const [state, setState] = useState<State>({
     loading: false,
     title: "Registrar aluno",
@@ -27,7 +26,7 @@ export const RegisterStudent: React.FC = () => {
   ];
 
   async function registerStudent(body: StudentModel) {
-    API.register_student(body)
+    API.STUDENT.STUDENT_CREATE(body)
       .then(() => setState((old) => ({ ...old })))
       .catch((exception) => console.log("API error: ", exception))
       .finally(() => setState((old) => ({ ...old, loading: false })));
@@ -43,4 +42,4 @@ export const RegisterStudent: React.FC = () => {
   );
 };
 
-export default RegisterStudent;
+export default StudentCreate;

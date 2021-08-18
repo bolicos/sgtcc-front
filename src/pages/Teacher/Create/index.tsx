@@ -7,12 +7,11 @@ import { GenericModel } from "#/models/props";
 import { API } from "#/services/sgtcc";
 
 interface State extends DefaultState {
-  title: string;
   titles: TitleModel[];
   teacher: TeacherModel;
 }
 
-export const RegisterTeacher: React.FC = () => {
+export const TeacherCreate: React.FC = () => {
   const [state, setState] = useState<State>({
     loading: false,
     title: "Registrar professor",
@@ -30,7 +29,7 @@ export const RegisterTeacher: React.FC = () => {
   ];
 
   const titleList = useCallback(() => {
-    API.title_list()
+    API.TITLE.TITLE_LIST()
       .then((response) => {
         const titles: TitleModel[] = response.data;
         setState((old) => ({ ...old, titles: titles }));
@@ -44,7 +43,7 @@ export const RegisterTeacher: React.FC = () => {
   }, [titleList]);
 
   async function registerTeacher(body: TeacherModel) {
-    API.register_teacher(body)
+    API.TEACHER.TEACHER_CREATE(body)
       .then(() => setState((old) => ({ ...old })))
       .catch((exception) => console.log("API error: ", exception))
       .finally(() => setState((old) => ({ ...old, loading: false })));
@@ -60,4 +59,4 @@ export const RegisterTeacher: React.FC = () => {
   );
 };
 
-export default RegisterTeacher;
+export default TeacherCreate;

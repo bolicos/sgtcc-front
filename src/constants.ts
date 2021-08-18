@@ -10,7 +10,7 @@ export const ROUTES = {
   HOME: () => "/",
   SIGNIN: () => "/sign-in",
   SIGNUP: () => "/sign-up",
-  NOT_FOUND: () => "/not-found",
+  NOT_FOUND: () => "/",
   DASHBOARD: () => "/dashboard",
 
   TEACHER_CREATE: () => "/register-teacher",

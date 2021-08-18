@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Col } from 'react-bootstrap';
+import { Button, Form, Col, Row } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -50,7 +50,7 @@ export const SignIn: React.FC = () => {
                     <h2>SignIn</h2>
 
                     <Form onSubmit={handleSubmit}>
-                        <Form.Row>
+                        <Row>
                             <Form.Group controlId="email" as={Col}>
                                 <Form.Label>E-mail</Form.Label>
                                 <Form.Control
@@ -65,14 +65,14 @@ export const SignIn: React.FC = () => {
                                     {errors.email}
                                 </Form.Control.Feedback>
                             </Form.Group>
-                        </Form.Row>
+                        </Row>
 
-                        <Form.Row>
+                        <Row>
                             <Form.Group controlId="password" as={Col}>
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" onChange={handleChange} value={values.password} />
                             </Form.Group>
-                        </Form.Row>
+                        </Row>
 
                         <Button variant="primary" type="submit">
                             SignIn
