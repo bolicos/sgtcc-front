@@ -3,3 +3,9 @@ export type ProposalRequest = {
   leader: number;
   title: string;
 };
+
+export type ProposalEditRequest = {
+  id: number;
+  leader: number;
+  title: string;
+};

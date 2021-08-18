@@ -43,53 +43,24 @@ export const ProposalDetails: React.FC = () => {
       <Container>
         <PageHeader title={state.title} />
         <Form>
-          <Form.Group
-            controlId="proposal.title"
-            contentEditable={false}
-            className="mb-3"
-          >
+          <Form.Group controlId="proposal.title" contentEditable={false} className="mb-3">
             <Form.Label>Título:</Form.Label>
             <Form.Control type="text" value={state.proposal.title} disabled />
           </Form.Group>
 
-          <Form.Group
-            controlId="proposal.author"
-            contentEditable={false}
-            className="mb-3"
-          >
+          <Form.Group controlId="proposal.author" contentEditable={false} className="mb-3">
             <Form.Label>Autor:</Form.Label>
-            <Form.Control
-              type="text"
-              value={state.proposal.author.name}
-              disabled
-            />
-            
+            <Form.Control type="text" value={state.proposal.author.name} disabled />
           </Form.Group>
 
-          <Form.Group
-            controlId="proposal.leader"
-            contentEditable={false}
-            className="mb-3"
-          >
+          <Form.Group controlId="proposal.leader" contentEditable={false} className="mb-3">
             <Form.Label>Orientador:</Form.Label>
-            <Form.Control
-              type="text"
-              value={state.proposal.leader.name}
-              disabled
-            />
+            <Form.Control type="text" value={state.proposal.leader.name} disabled />
           </Form.Group>
 
-          <Form.Group
-            controlId="proposal.createdAt"
-            contentEditable={false}
-            className="mb-3"
-          >
+          <Form.Group controlId="proposal.createdAt" contentEditable={false} className="mb-3">
             <Form.Label>Criada em:</Form.Label>
-            <Form.Control
-              type="text"
-              value={state.proposal.createdAt}
-              disabled
-            />
+            <Form.Control type="text" value={state.proposal.createdAt} disabled />
           </Form.Group>
 
           <Row className="justify-content-md-center">

@@ -4,25 +4,24 @@ import {
   TitleModel,
   ClassDetailsModel,
   TeacherModel,
-  StudentModel,
   TeacherDetailsModel,
   EditTeacherModel,
   StudentDetailsModel,
   EditStudentModel,
   ProposalDetailsModel,
-  EditProposalModel,
   ExaminationModel,
   ExaminationDetailsModel,
   EditExaminationModel,
   BoardDetailsModel,
-  EditBoardModel
+  EditBoardModel,
 } from "#/models/sgtcc";
-import { ProposalRequest } from "#/models/request/proposal";
-import { BoardRequest } from "../models/request/board";
+import { ProposalEditRequest, ProposalRequest } from "#/models/request/proposal";
+import { StudentRequest } from "#/models/request/student";
+import { BoardRequest } from "#/models/request/board";
 import { ResourceCreate } from "#/models/resource/created";
 
-interface List<T> extends Promise<Response<Array<T>>> { }
-interface Object<T> extends Promise<Response<T>> { }
+interface List<T> extends Promise<Response<Array<T>>> {}
+interface Object<T> extends Promise<Response<T>> {}
 
 export const ENDPOINTS = {
   TYPE_LIST: () => "/api/v1/types",
@@ -77,7 +76,7 @@ export const API = {
   },
   STUDENT: {
     STUDENT_LIST: (): List<StudentDetailsModel> => client.get<Array<TeacherDetailsModel>>(ENDPOINTS.STUDENT_LIST()),
-    STUDENT_CREATE: (body: StudentModel): Object<StudentModel> => client.post(ENDPOINTS.STUDENT_CREATE(), body),
+    STUDENT_CREATE: (body: StudentRequest): Object<ResourceCreate> => client.post(ENDPOINTS.STUDENT_CREATE(), body),
     STUDENT_DETAILS: (id: string): Object<StudentDetailsModel> => client.get(ENDPOINTS.STUDENT_DETAILS(id)),
     STUDENT_EDIT: (id: string, body: EditStudentModel): Object<EditStudentModel> =>
       client.put(ENDPOINTS.STUDENT_EDIT(id), body),
@@ -86,11 +85,12 @@ export const API = {
     PROPOSAL_LIST: (): List<ProposalDetailsModel> => client.get<Array<ProposalDetailsModel>>(ENDPOINTS.PROPOSAL_LIST()),
     PROPOSAL_CREATE: (body: ProposalRequest): Object<ResourceCreate> => client.post(ENDPOINTS.PROPOSAL_CREATE(), body),
     PROPOSAL_DETAILS: (id: string): Object<ProposalDetailsModel> => client.get(ENDPOINTS.PROPOSAL_DETAILS(id)),
-    PROPOSAL_EDIT: (id: string, body: EditProposalModel): Object<EditProposalModel> =>
+    PROPOSAL_EDIT: (id: string, body: ProposalEditRequest): Object<ProposalDetailsModel> =>
       client.put(ENDPOINTS.PROPOSAL_EDIT(id), body),
   },
   EXAMINATION: {
-    EXAMINATION_CREATE: (body: ExaminationModel): Object<ResourceCreate> => client.post(ENDPOINTS.EXAMINATION_CREATE(), body),
+    EXAMINATION_CREATE: (body: ExaminationModel): Object<ResourceCreate> =>
+      client.post(ENDPOINTS.EXAMINATION_CREATE(), body),
     EXAMINATION_DETAILS: (id: string): Object<ExaminationDetailsModel> => client.get(ENDPOINTS.EXAMINATION_DETAILS(id)),
     EXAMINATION_EDIT: (id: string, body: EditExaminationModel): Object<EditExaminationModel> =>
       client.put(ENDPOINTS.EXAMINATION_EDIT(id), body),
