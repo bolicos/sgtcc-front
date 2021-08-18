@@ -72,4 +72,11 @@ export interface EditExaminationProps {
     onConfirmEditExamination: (body: any) => void;
 }
 
+export interface EditBoardProps {
+    teachers: any;
+    board: any;
+    columns: GenericModel[];
+    onConfirmEditBoard: (body: any) => void;
+}
+
 

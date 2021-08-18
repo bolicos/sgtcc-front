@@ -30,6 +30,11 @@ import ExaminationCreatePage from "#/pages/Examination/Create";
 import ExaminationDetailsPage from "#/pages/Examination/Details";
 import ExaminationEditPage from "#/pages/Examination/Edit";
 
+// Board Pages
+import BoardCreatePage from "#/pages/Board/Create";
+import BoardDetailsPage from "#/pages/Board/Details";
+import BoardEditPage from "#/pages/Board/Edit";
+
 const PrivateRoute = ({ isAuthenticated, component, ...rest }: any) => {
   const routeComponent = (props: any) =>
     isAuthenticated ? (
@@ -62,6 +67,10 @@ export const Routes: React.FC = () => (
       <Route exact path={ROUTES.EXAMINATION_CREATE()} component={ExaminationCreatePage} />
       <Route exact path={ROUTES.EXAMINATION_DETAILS(":id")} component={ExaminationDetailsPage} />
       <Route exact path={ROUTES.EXAMINATION_EDIT(":id")} component={ExaminationEditPage} />
+
+      <Route exact path={ROUTES.BOARD_CREATE()} component={BoardCreatePage} />
+      <Route exact path={ROUTES.BOARD_DETAILS(":id")} component={BoardDetailsPage} />
+      <Route exact path={ROUTES.BOARD_EDIT(":id")} component={BoardEditPage} />
 
       <PrivateRoute exact path={ROUTES.DASHBOARD()} isAuthenticated={isAuthenticated()} component={Dashboard} />
       <Route path={ROUTES.NOT_FOUND()} component={NotFoundPage} />

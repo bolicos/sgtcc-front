@@ -28,4 +28,8 @@ export const ROUTES = {
   EXAMINATION_CREATE: () => "/examinations",
   EXAMINATION_DETAILS: (id: string) => `/examinations/${id}/details`,
   EXAMINATION_EDIT: (id: string) => `/examinations/${id}/edit`,
+
+  BOARD_CREATE: () => "/boards",
+  BOARD_DETAILS: (id: string) => `/boards/${id}/details`,
+  BOARD_EDIT: (id: string) => `/boards/${id}/edit`,
 };

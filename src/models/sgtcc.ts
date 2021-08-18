@@ -205,4 +205,144 @@ export interface EditExaminationModel {
     type: Type
 }
 
+export interface BoardDetailsModel {
+    aclass: {
+        createdAt: string;
+        id: number;
+        name: string;
+        semester: {
+            id: number;
+            name: string
+        };
+        students: {
+            additionalProp1: number;
+            additionalProp2: number;
+            additionalProp3: number
+        };
+        teacher: {
+            cpf: string;
+            createdAt: string;
+            email: string;
+            id: number;
+            name: string;
+            phone: string;
+            registration: string;
+            title: {
+                description: string;
+                id: number;
+                nomenclature: string;
+                type: string
+            }
+        }
+    };
+    createdAt: string;
+    dateScheduled: string;
+    evaluators: [
+        {
+            cpf: string;
+            createdAt: string;
+            email: string;
+            id: number;
+            name: string;
+            phone: string;
+            registration: string;
+            title: {
+                description: string;
+                id: number;
+                nomenclature: string;
+                type: string
+            }
+        }
+    ];
+    id: number;
+    leader: {
+        cpf: string;
+        createdAt: string;
+        email: string;
+        id: number;
+        name: string;
+        phone: string;
+        registration: string;
+        title: {
+            description: string;
+            id: number;
+            nomenclature: string;
+            type: string
+        }
+    };
+    proposal: {
+        author: {
+            cpf: string;
+            createdAt: string;
+            email: string;
+            id: number;
+            name: string;
+            phone: string;
+            registration: string
+        };
+        createdAt: string;
+        id: number;
+        leader: {
+            cpf: string;
+            createdAt: string;
+            email: string;
+            id: number;
+            name: string;
+            phone: string;
+            registration: string;
+            title: {
+                description: string;
+                id: number;
+                nomenclature: string;
+                type: string
+            }
+        };
+        title: string
+    }
+}
+
+export interface EditBoardModel {
+    dateScheduled: string;
+    evaluators: [
+        {
+            id: number;
+        }
+    ];
+    leader: {
+        id: number;
+    };
+
+}
+
+export interface ClassDetailsModel {
+    createdAt: string;
+    id: number;
+    name: string;
+    semester: {
+        id: number;
+        name: string
+    };
+    students: {
+        additionalProp1: number;
+        additionalProp2: number;
+        additionalProp3: number
+    };
+    teacher: {
+        cpf: string;
+        createdAt: string;
+        email: string;
+        id: number;
+        name: string;
+        phone: string;
+        registration: string;
+        title: {
+            description: string;
+            id: number;
+            nomenclature: string;
+            type: string
+        }
+    }
+}
+
+
 

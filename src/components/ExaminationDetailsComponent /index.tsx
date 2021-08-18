@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import clsx from "clsx";
 import { ExaminationDetailsProps } from "#/models/props";
 import { ROUTES } from "#/constants";
 

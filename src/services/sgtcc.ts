@@ -2,6 +2,7 @@ import { Response, client } from "./clients";
 import {
   Type,
   TitleModel,
+  ClassDetailsModel,
   TeacherModel,
   StudentModel,
   TeacherDetailsModel,
@@ -13,8 +14,11 @@ import {
   ExaminationModel,
   ExaminationDetailsModel,
   EditExaminationModel,
+  BoardDetailsModel,
+  EditBoardModel
 } from "#/models/sgtcc";
 import { ProposalRequest } from "#/models/request/proposal";
+import { BoardRequest } from "../models/request/board";
 import { ResourceCreate } from "#/models/resource/created";
 
 interface List<T> extends Promise<Response<Array<T>>> { }
@@ -22,8 +26,10 @@ interface Object<T> extends Promise<Response<T>> { }
 
 export const ENDPOINTS = {
   TYPE_LIST: () => "/api/v1/types",
-  
+
   TITLE_LIST: () => "/api/v1/titles",
+
+  CLASS_LIST: () => "/api/v1/classes",
 
   TEACHER_LIST: () => "/api/v1/teachers",
   TEACHER_CREATE: () => "/api/v1/teachers",
@@ -43,6 +49,10 @@ export const ENDPOINTS = {
   EXAMINATION_CREATE: () => "/api/v1/examinations",
   EXAMINATION_DETAILS: (id: string) => `/api/v1/examinations/${id}`,
   EXAMINATION_EDIT: (id: string) => `/api/v1/examinations/${id}`,
+
+  BOARD_CREATE: () => "/api/v1/boards",
+  BOARD_DETAILS: (id: string) => `/api/v1/boards/${id}`,
+  BOARD_EDIT: (id: string) => `/api/v1/boards/${id}`,
 };
 
 export const API = {
@@ -52,6 +62,10 @@ export const API = {
 
   TITLE: {
     TITLE_LIST: (): List<TitleModel> => client.get<Array<TitleModel>>(ENDPOINTS.TITLE_LIST()),
+  },
+
+  CLASS: {
+    CLASS_LIST: (): List<ClassDetailsModel> => client.get<Array<ClassDetailsModel>>(ENDPOINTS.CLASS_LIST()),
   },
 
   TEACHER: {
@@ -80,5 +94,12 @@ export const API = {
     EXAMINATION_DETAILS: (id: string): Object<ExaminationDetailsModel> => client.get(ENDPOINTS.EXAMINATION_DETAILS(id)),
     EXAMINATION_EDIT: (id: string, body: EditExaminationModel): Object<EditExaminationModel> =>
       client.put(ENDPOINTS.EXAMINATION_EDIT(id), body),
+  },
+
+  BOARD: {
+    BOARD_CREATE: (body: BoardRequest): Object<ResourceCreate> => client.post(ENDPOINTS.BOARD_CREATE(), body),
+    BOARD_DETAILS: (id: string): Object<BoardDetailsModel> => client.get(ENDPOINTS.BOARD_DETAILS(id)),
+    BOARD_EDIT: (id: string, body: EditBoardModel): Object<EditBoardModel> =>
+      client.put(ENDPOINTS.BOARD_EDIT(id), body),
   },
 };
