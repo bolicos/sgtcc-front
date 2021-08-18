@@ -2,15 +2,14 @@ import { Response, client } from "./clients";
 import {
   TitleModel,
   TeacherModel,
-  StudentModel,
   TeacherDetailsModel,
   EditTeacherModel,
   StudentDetailsModel,
   EditStudentModel,
   ProposalDetailsModel,
-  EditProposalModel,
 } from "#/models/sgtcc";
-import { ProposalRequest } from "#/models/request/proposal";
+import { ProposalEditRequest, ProposalRequest } from "#/models/request/proposal";
+import { StudentRequest } from "#/models/request/student";
 import { ResourceCreate } from "#/models/resource/created";
 
 interface List<T> extends Promise<Response<Array<T>>> {}
@@ -47,7 +46,7 @@ export const API = {
   },
   STUDENT: {
     STUDENT_LIST: (): List<StudentDetailsModel> => client.get<Array<TeacherDetailsModel>>(ENDPOINTS.STUDENT_LIST()),
-    STUDENT_CREATE: (body: StudentModel): Object<StudentModel> => client.post(ENDPOINTS.STUDENT_CREATE(), body),
+    STUDENT_CREATE: (body: StudentRequest): Object<ResourceCreate> => client.post(ENDPOINTS.STUDENT_CREATE(), body),
     STUDENT_DETAILS: (id: string): Object<StudentDetailsModel> => client.get(ENDPOINTS.STUDENT_DETAILS(id)),
     STUDENT_EDIT: (id: string, body: EditStudentModel): Object<EditStudentModel> =>
       client.put(ENDPOINTS.STUDENT_EDIT(id), body),
@@ -55,7 +54,7 @@ export const API = {
   PROPOSAL: {
     PROPOSAL_CREATE: (body: ProposalRequest): Object<ResourceCreate> => client.post(ENDPOINTS.PROPOSAL_CREATE(), body),
     PROPOSAL_DETAILS: (id: string): Object<ProposalDetailsModel> => client.get(ENDPOINTS.PROPOSAL_DETAILS(id)),
-    PROPOSAL_EDIT: (id: string, body: EditProposalModel): Object<EditProposalModel> =>
+    PROPOSAL_EDIT: (id: string, body: ProposalEditRequest): Object<ProposalDetailsModel> =>
       client.put(ENDPOINTS.PROPOSAL_EDIT(id), body),
   },
 };

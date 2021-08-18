@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loader from "#/components/Loader";
 import EditStudentComponent from "#/components/EditStudentComponent";
 import { DefaultState } from "#/models/default";
 import { EditStudentModel, StudentDetailsModel } from "#/models/sgtcc";
 import { GenericModel } from "#/models/props";
 import { API } from "#/services/sgtcc";
+import { Spinner } from "react-bootstrap";
 
 interface State extends DefaultState {
     student: EditStudentModel;
@@ -48,7 +48,7 @@ export const StudentEdit: React.FC = () => {
     }, [id]);
 
     return state.loading === true ? (
-        <Loader />
+        <Spinner animation="grow" />
     ) : (
         <>
             <h1>{state.title}</h1>
