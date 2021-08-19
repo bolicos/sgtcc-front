@@ -11,9 +11,11 @@ import { DefaultState } from "#/models/default";
 import { JwtToken } from "#/models/response/user";
 import { SignInProps } from "#/models/props/auth";
 import { ROUTES } from "#/constants";
+import { AUTH } from "#/helpers/Auth";
 
 interface State extends DefaultState {
   isAuthenticated: boolean;
+  token: string;
 }
 
 export const SignIn: React.FC<SignInProps> = ({ success }) => {
@@ -23,6 +25,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
     loading: true,
     title: "SignIn",
     isAuthenticated: false,
+    token: "",
   });
 
   const handleClose = () => setShow(false);
@@ -49,7 +52,11 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
     API.AUTH.SIGN_IN(values)
       .then((response) => {
         const token: JwtToken = response.data;
-        setState((prev) => ({ ...prev, isAuthenticated: success(token.jwt) }));
+
+        setState((prev) => ({
+          ...prev,
+          token: token.jwt,
+        }));
       })
       .catch((exception) => {
         handleShow();
@@ -58,11 +65,23 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
       .finally(() => {
         setState((prev) => ({ ...prev, loading: false }));
       });
-  }, [values, success]);
+  }, [values]);
+
+  const afterSignIn = useCallback(() => {
+    if (!!state.token && AUTH.IS_VALID(state.token)) {
+      AUTH.SIGNIN(state.token);
+    }
+
+    setState((prev) => ({ ...prev, isAuthenticated: AUTH.IS_VALID(state.token) }));
+  }, [state.token]);
 
   useEffect(() => {
     setState((prev) => ({ ...prev, loading: false }));
   }, []);
+
+  useEffect(() => {
+    afterSignIn();
+  }, [afterSignIn]);
 
   useEffect(() => {
     if (state.isAuthenticated) {

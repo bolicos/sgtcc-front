@@ -35,7 +35,9 @@ import BoardCreatePage from "#/pages/Board/Create";
 import BoardDetailsPage from "#/pages/Board/Details";
 import BoardEditPage from "#/pages/Board/Edit";
 
-const PrivateRoute = ({ isAuthenticated, component, ...rest }: any) => {
+const PrivateRoute = ({ component, ...rest }: any) => {
+  const isAuthenticated = AUTH.IS_AUTHENTICATE();
+
   const routeComponent = (props: any) =>
     isAuthenticated ? (
       React.createElement(component, props)
@@ -47,19 +49,11 @@ const PrivateRoute = ({ isAuthenticated, component, ...rest }: any) => {
 };
 
 const Routes: React.FC = () => {
-  function auth(token: string) {
-    if (AUTH.IS_VALID(token)) {
-      AUTH.SIGNIN(token);
-    }
-
-    return AUTH.IS_VALID(token);
-  }
-
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path={ROUTES.HOME()} component={HomePage} />
-        <Route exact path={ROUTES.SIGNIN()} component={() => <SignInPage success={auth} />} />
+        <Route exact path={ROUTES.SIGNIN()} component={SignInPage} />
         <Route exact path={ROUTES.SIGNUP()} component={SignUpPage} />
 
         <Route exact path={ROUTES.TEACHER_CREATE()} component={TeacherCreatePage} />
@@ -82,7 +76,7 @@ const Routes: React.FC = () => {
         <Route exact path={ROUTES.BOARD_DETAILS(":id")} component={BoardDetailsPage} />
         <Route exact path={ROUTES.BOARD_EDIT(":id")} component={BoardEditPage} />
 
-        <PrivateRoute exact path={ROUTES.DASHBOARD()} isAuthenticated={AUTH.IS_AUTHENTICATE()} component={Dashboard} />
+        <PrivateRoute exact path={ROUTES.DASHBOARD()} component={Dashboard} />
         <Route path={ROUTES.NOT_FOUND()} component={NotFoundPage} />
       </Switch>
     </BrowserRouter>
