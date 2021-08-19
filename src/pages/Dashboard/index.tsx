@@ -1,9 +1,17 @@
 import React, { useMemo } from "react";
+import { useHistory } from "react-router-dom";
 import { Row, Col, Container, Button, Card } from "react-bootstrap";
 import PageHeader from "#/components/PageHeader";
 import { ROUTES } from "#/constants";
-import { AUTH } from "~/src/helpers/Auth";
-import { useHistory } from "react-router-dom";
+import { AUTH } from "#/helpers/Auth";
+import {
+  FcAnswers,
+  FcClapperboard,
+  FcCollaboration,
+  FcConferenceCall,
+  FcInspection,
+  FcGraduationCap,
+} from "react-icons/fc";
 
 const Dashboard: React.FC = () => {
   const history = useHistory();
@@ -16,59 +24,80 @@ const Dashboard: React.FC = () => {
           <Row>
             <PageHeader title="Dashboard" />
           </Row>
-          <Row>Bem vinde de volta {userPrincipal?.name}!</Row>
+          <Row>Bem vinde de volta _{userPrincipal?.name}_!</Row>
         </Col>
 
         <Col>
           <Card style={{ width: "18rem" }} onClick={() => history.push(ROUTES.PROPOSAL_CREATE())}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <FcAnswers size="5em" />
             <Card.Body>
               <Card.Title>Minhas Proposta</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Selecionar</Button>
             </Card.Body>
           </Card>
+          <br></br>
 
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <FcInspection size="5em" />
             <Card.Body>
               <Card.Title>Minhas Avaliações</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Selecionar</Button>
             </Card.Body>
           </Card>
         </Col>
 
         <Col>
           <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fproposta_1522794&psig=AOvVaw3emNS-ishABDEOn4iymfdU&ust=1629499061567000&source=images&cd=vfe&ved=2ahUKEwi9vYqXk77yAhXTAdQKHVCHAMEQjRx6BAgAEAo"
-            />
+            <FcClapperboard size="5em" />
             <Card.Body>
               <Card.Title>Minhas Bancas</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Selecionar</Button>
             </Card.Body>
           </Card>
+          <br></br>
 
           <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fproposta_1522794&psig=AOvVaw3emNS-ishABDEOn4iymfdU&ust=1629499061567000&source=images&cd=vfe&ved=2ahUKEwi9vYqXk77yAhXTAdQKHVCHAMEQjRx6BAgAEAo"
-            />
+            <FcGraduationCap size="5em" />
             <Card.Body>
-              <Card.Title>Minhas Bancas</Card.Title>
+              <Card.Title>Minhas Turmas</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Selecionar</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card style={{ width: "18rem" }}>
+            <FcCollaboration size="5em" />
+            <Card.Body>
+              <Card.Title>Meus Colegas</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Selecionar</Button>
+            </Card.Body>
+          </Card>
+          <br></br>
+
+          <Card style={{ width: "18rem" }}>
+            <FcConferenceCall size="5em" />
+            <Card.Body>
+              <Card.Title>Professores</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Selecionar</Button>
             </Card.Body>
           </Card>
         </Col>
