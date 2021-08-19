@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loader from "#/components/Loader";
+import { Spinner } from "react-bootstrap";
 import ExaminationDetailsComponent from "#/components/ExaminationDetailsComponent ";
 import { DefaultState } from "#/models/default";
 import { ExaminationDetailsModel } from "#/models/sgtcc";
@@ -81,7 +81,7 @@ export const ExaminationDetails: React.FC = () => {
     }, [examinationDetails]);
 
     return state.loading === true ? (
-        <Loader />
+        <Spinner animation="grow" />
     ) : (
         <>
             <h1 >{state.title}</h1>

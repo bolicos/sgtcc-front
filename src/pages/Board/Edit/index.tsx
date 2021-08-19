@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loader from "#/components/Loader";
+import { Spinner } from "react-bootstrap";
 import EditBoardComponent from "#/components/EditBoardComponent";
 import { DefaultState } from "#/models/default";
 import { TeacherDetailsModel, EditBoardModel, BoardDetailsModel } from "#/models/sgtcc";
@@ -65,7 +65,7 @@ export const BoardEdit: React.FC = () => {
     }, [id]);
 
     return state.loading === true ? (
-        <Loader />
+        <Spinner animation="grow" />
     ) : (
         <>
             <h1>{state.title}</h1>

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import Loader from "#/components/Loader";
+import { Spinner } from "react-bootstrap";
 import RegisterExaminationComponent from "#/components/RegisterExaminationComponent";
 import { DefaultState } from "#/models/default";
 import { ProposalDetailsModel, TeacherDetailsModel, Type, ExaminationModel } from "#/models/sgtcc";
@@ -88,7 +88,7 @@ export const ExaminationCreate: React.FC = () => {
   }
 
   return state.loading === true ? (
-    <Loader />
+    <Spinner animation="grow" />
   ) : (
     <>
       <h1>{state.title}</h1>
