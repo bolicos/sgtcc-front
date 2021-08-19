@@ -1,0 +1,31 @@
+@import "#/assets/styles/global.scss";
+
+.card {
+  border-radius: 1rem;
+  color: $primaryDarkerColor;
+  background-color: $backgroundColor;
+}
+
+.card-body {
+  border-radius: 1.5rem;
+  padding-bottom: 3rem;
+  color: $textBaseColor;
+}
+
+.button-large {
+  border-radius: 1rem;
+}
+
+.div {
+  height: 2rem;
+}
+
+.card-title {
+  color: $textBaseColor;
+}
+
+.container-body {
+  border-radius: 1.5rem;
+  background-color: $primaryLighterColor;
+  padding-bottom: 2rem;
+}
