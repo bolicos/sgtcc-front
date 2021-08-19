@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { ROUTES } from "#/constants";
-import { isAuthenticated } from "#/helpers/auth";
+import { isAuthenticated } from "#/helpers/Auth";
 
 // Utils PAGES
 import HomePage from "#/pages/Home";
@@ -72,7 +72,7 @@ export const Routes: React.FC = () => (
       <Route exact path={ROUTES.BOARD_DETAILS(":id")} component={BoardDetailsPage} />
       <Route exact path={ROUTES.BOARD_EDIT(":id")} component={BoardEditPage} />
 
-      <PrivateRoute exact path={ROUTES.DASHBOARD()} isAuthenticated={isAuthenticated()} component={Dashboard} />
+      <Route exact path={ROUTES.DASHBOARD()} isAuthenticated={isAuthenticated()} component={Dashboard} />
       <Route path={ROUTES.NOT_FOUND()} component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
