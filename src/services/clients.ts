@@ -2,6 +2,8 @@ import axios, { AxiosResponse } from "axios";
 import { WEB_APP } from "#/constants";
 
 export interface Response<T = any> extends AxiosResponse<T> {}
+export interface List<T> extends Promise<Response<Array<T>>> { }
+export interface Object<T> extends Promise<Response<T>> { }
 
 export const CLIENTS_BASE_URLS = {
   SGTCC: () => WEB_APP.API_BASE_URL,

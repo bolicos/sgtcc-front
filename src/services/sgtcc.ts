@@ -1,4 +1,4 @@
-import { Response, client } from "./clients";
+import { List, Object, client } from "./clients";
 import {
   Type,
   TitleModel,
@@ -19,14 +19,8 @@ import { ProposalEditRequest, ProposalRequest } from "#/models/request/proposal"
 import { StudentRequest } from "#/models/request/student";
 import { BoardRequest } from "#/models/request/board";
 import { ResourceCreate } from "#/models/resource/created";
-import { User } from "#/models/user";
-
-interface List<T> extends Promise<Response<Array<T>>> { }
-interface Object<T> extends Promise<Response<T>> { }
 
 export const ENDPOINTS = {
-  SIGN_IN: () => "https://global-auth-api.herokuapp.com/api/login",
-
   TYPE_LIST: () => "/api/v1/types",
 
   TITLE_LIST: () => "/api/v1/titles",
@@ -58,10 +52,6 @@ export const ENDPOINTS = {
 };
 
 export const API = {
-  AUTH: {
-    SIGN_IN: (body: User): Object<User> => client.post(ENDPOINTS.SIGN_IN(), body),
-  },
-
   TYPE: {
     TYPE_LIST: (): List<Type> => client.get<Array<Type>>(ENDPOINTS.TYPE_LIST()),
   },

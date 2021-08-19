@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button, Form, Col, Row, Container, Spinner, Modal } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { User } from "#/models/user";
-import { API } from "#/services/sgtcc";
+import { API } from "#/services/auth";
 import PageHeader from "#/components/PageHeader";
 import css from "./styles.module.scss";
+import { DefaultState } from "#/models/default";
+import { JwtToken } from "#/models/response/user";
 
 export const SignIn: React.FC = () => {
   const [show, setShow] = useState(false);
-  const [isLoading] = useState(false);
+  const [state, setState] = useState<DefaultState>({
+    loading: true,
+    title: "SignIn",
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,18 +30,34 @@ export const SignIn: React.FC = () => {
       password: "",
     },
     validationSchema: schema,
-    onSubmit: (body: User) => {
-      try {
-        API.AUTH.SIGN_IN(body)
-          .then(() => window.location.href = "/");
-      } catch (exception) {
-        console.log("Algo deu errado, erro: ", exception);
-        throw new Error(exception.message);
-      }
+    onSubmit: () => {
+      signIn();
     },
   });
 
-  return isLoading === true ? (
+  const signIn = useCallback(() => {
+    setState((prev) => ({ ...prev, loading: true }));
+    API.AUTH.SIGN_IN(values)
+      .then((response) => {
+        const token: JwtToken = response.data;
+
+        console.log("token: ", token);
+      })
+      .catch((exception) => {
+        handleShow();
+        console.log("Algo deu errado, erro: ", exception);
+        throw new Error(exception.message);
+      })
+      .finally(() => {
+        setState((prev) => ({ ...prev, loading: false }));
+      });
+  }, [values]);
+
+  useEffect(() => {
+    setState((prev) => ({ ...prev, loading: false }));
+  }, []);
+
+  return state.loading === true ? (
     <Spinner animation="grow" />
   ) : (
     <>
@@ -52,7 +73,7 @@ export const SignIn: React.FC = () => {
         </Modal.Footer>
       </Modal>
       <Container>
-        <PageHeader title="SignIn" />
+        <PageHeader title={state.title} />
 
         <Form onSubmit={handleSubmit}>
           <Row>
