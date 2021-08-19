@@ -17,6 +17,7 @@
   "config-overrides-path": "config/configuration.js",
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
     "miragejs": "^0.1.41",

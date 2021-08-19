@@ -1,7 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import Mirage from "#/services/mirage";
 import "#/assets/styles/global.scss"
 
 // Importing the Bootstrap CSS
@@ -18,7 +17,6 @@ ReactDOM.render(
 );
 
 if(process.env.NODE_ENV !== "production")
-  Mirage();
 
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.unregister();
