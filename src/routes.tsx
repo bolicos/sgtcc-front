@@ -72,7 +72,8 @@ export const Routes: React.FC = () => (
       <Route exact path={ROUTES.BOARD_DETAILS(":id")} component={BoardDetailsPage} />
       <Route exact path={ROUTES.BOARD_EDIT(":id")} component={BoardEditPage} />
 
-      <Route exact path={ROUTES.DASHBOARD()} isAuthenticated={isAuthenticated()} component={Dashboard} />
+      {/* <PrivateRoute exact path={ROUTES.DASHBOARD()} isAuthenticated={isAuthenticated()} component={Dashboard} /> */}
+      <Route exact path={ROUTES.DASHBOARD()} component={Dashboard} />
       <Route path={ROUTES.NOT_FOUND()} component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
