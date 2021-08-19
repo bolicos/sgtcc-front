@@ -1,10 +1,13 @@
 const LocalStorage = {
-    GET: (name: string) => {
-      return localStorage.getItem(name);
-    },
-    SAVE: (name: string, value: string) => {
-      localStorage.setItem(name, value);
-    },
-  };
-  
-  export default LocalStorage;
+  GET: (key: string) => {
+    return localStorage.getItem(key);
+  },
+  SAVE: (key: string, value: string) => {
+    localStorage.setItem(key, value);
+  },
+  REMOVE: (key: string) => {
+    localStorage.removeItem(key);
+  },
+};
+
+export default LocalStorage;

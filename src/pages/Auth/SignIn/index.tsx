@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Row, Container, Spinner, Modal } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -8,12 +9,20 @@ import PageHeader from "#/components/PageHeader";
 import css from "./styles.module.scss";
 import { DefaultState } from "#/models/default";
 import { JwtToken } from "#/models/response/user";
+import { SignInProps } from "#/models/props/auth";
+import { ROUTES } from "#/constants";
 
-export const SignIn: React.FC = () => {
+interface State extends DefaultState {
+  isAuthenticated: boolean;
+}
+
+export const SignIn: React.FC<SignInProps> = ({ success }) => {
+  const history = useHistory();
   const [show, setShow] = useState(false);
-  const [state, setState] = useState<DefaultState>({
+  const [state, setState] = useState<State>({
     loading: true,
     title: "SignIn",
+    isAuthenticated: false,
   });
 
   const handleClose = () => setShow(false);
@@ -40,25 +49,29 @@ export const SignIn: React.FC = () => {
     API.AUTH.SIGN_IN(values)
       .then((response) => {
         const token: JwtToken = response.data;
-
-        console.log("token: ", token);
+        setState((prev) => ({ ...prev, isAuthenticated: success(token.jwt) }));
       })
       .catch((exception) => {
         handleShow();
         console.log("Algo deu errado, erro: ", exception);
-        throw new Error(exception.message);
       })
       .finally(() => {
         setState((prev) => ({ ...prev, loading: false }));
       });
-  }, [values]);
+  }, [values, success]);
 
   useEffect(() => {
     setState((prev) => ({ ...prev, loading: false }));
   }, []);
 
+  useEffect(() => {
+    if (state.isAuthenticated) {
+      history.push(ROUTES.DASHBOARD());
+    }
+  }, [history, state.isAuthenticated]);
+
   return state.loading === true ? (
-    <Spinner animation="grow" />
+    <Spinner animation="border" />
   ) : (
     <>
       <Modal show={show} onHide={handleClose}>
