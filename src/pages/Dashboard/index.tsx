@@ -9,39 +9,7 @@ export const Dashboard: React.FC = () => {
     <Container className={css["container-body"]}>
       <PageHeader title="Dashboard"/>
 
-      {/* <CardGroup>
-        <Card className={css["card"]}>
-          <Card.Body className={css["card-body"]}>
-            <Card.Title>Alunos</Card.Title>
-            <Card.Text>
-              Entre em contato com seus colegas
-            </Card.Text>
-          </Card.Body>
-
-          <div className="d-grid gap-2">
-            <Button href="" className={css["button-large"]} variant="success" size="lg">
-              {'>'}
-            </Button>
-          </div>
-
-        </Card>
-        <Card className={css["card"]}>
-          <Card.Body className={css["card-body"]}>
-            <Card.Title>Professor</Card.Title>
-            <Card.Text>
-              Converse com seu professor
-            </Card.Text>
-          </Card.Body>
-
-          <div className="d-grid gap-2">
-            <Button className={css["button-large"]} variant="success" size="lg">
-              {'>'}
-            </Button>
-          </div>
-        </Card>
-      </CardGroup> */}
-      <div className={css["div"]}></div>
-      <CardGroup >
+      <CardGroup>
         <Card className={css["card"]}>
           <Card.Body className={css["card-body"]}>
             <Card.Title>Propostas</Card.Title>
@@ -56,6 +24,24 @@ export const Dashboard: React.FC = () => {
             </Button>
           </div>
         </Card>
+        <Card className={css["card"]}>
+          
+          <Card.Body className={css["card-body"]}>
+            <Card.Title>Professor</Card.Title>
+            <Card.Text>
+              Converse com seu professor
+            </Card.Text>
+          </Card.Body>
+
+          <div className="d-grid gap-2">
+            <Button className={css["button-large"]} variant="success" size="lg">
+              {'>'}
+            </Button>
+          </div>
+        </Card>
+      </CardGroup>
+      <div className={css["div"]}></div>
+      <CardGroup >
         <Card className={css["card"]}>
           <Card.Body className={css["card-body"]}>
             <Card.Title>Avaliações</Card.Title>
