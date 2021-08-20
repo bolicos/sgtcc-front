@@ -24,6 +24,7 @@ interface State extends DefaultState {
 
 export const ProposalCreate: React.FC = () => {
   const [show, setShow] = useState(false);
+  //inicializa as variaveis de estado
   const [state, setState] = useState<State>({
     loading: true,
     title: "Criar Proposta",
@@ -130,6 +131,7 @@ export const ProposalCreate: React.FC = () => {
 
       <Container>
         <PageHeader title={state.title} />
+
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="proposal.title">
           {/* adiciona o campo de titilo e chama as funcções de validação quando alterar e desfocar do campo */}
