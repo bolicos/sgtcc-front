@@ -14,6 +14,7 @@ import { StudentDetailsModel, TeacherDetailsModel } from "#/models/sgtcc";
 import { ProposalRequest } from "#/models/request/proposal";
 import { ResourceCreate } from "#/models/resource/created";
 import { DefaultState } from "#/models/default";
+//importa o arquivo de estilos especifico da pagina
 import css from "./styles.module.scss";
 
 //inicializa as variaveis de students e teachers como array da model de students e teachers details
