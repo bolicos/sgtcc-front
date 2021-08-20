@@ -13,6 +13,7 @@ import css from "./styles.module.scss";
 import { DefaultState } from "#/models/default";
 import { JwtToken } from "#/models/response/user";
 import { SignInProps } from "#/models/props/auth";
+// importa as rotas da aplicacao
 import { ROUTES } from "#/constants";
 // importa helpers de autenticacao
 import { AUTH } from "#/helpers/Auth";
