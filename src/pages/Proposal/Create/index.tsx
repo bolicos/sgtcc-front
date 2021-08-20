@@ -41,7 +41,7 @@ export const ProposalCreate: React.FC = () => {
     leader: Yup.number().moreThan(0, "Orientador obrigatorio."),
     title: Yup.string().required("Titulo obrigatorio."),
   });
-
+  // utiliza formik para importar funcoes de formulario
   const { values, errors, touched, handleChange, handleBlur, handleSubmit, resetForm } = useFormik<ProposalRequest>({
     initialValues: {
       author: 0,
