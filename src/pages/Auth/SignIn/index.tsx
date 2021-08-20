@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Row, Container, Spinner, Modal } from "react-bootstrap";
+// importa o formik para utilizar helpers de formulario
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { User } from "#/models/user";
+// importa a api de autenticacao
 import { API } from "#/services/auth";
 import PageHeader from "#/components/PageHeader";
 import css from "./styles.module.scss";
