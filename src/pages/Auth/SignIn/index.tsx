@@ -8,13 +8,16 @@ import { User } from "#/models/user";
 // importa a api de autenticacao
 import { API } from "#/services/auth";
 import PageHeader from "#/components/PageHeader";
+// importa o arquivo de estilos da pagina
 import css from "./styles.module.scss";
 import { DefaultState } from "#/models/default";
 import { JwtToken } from "#/models/response/user";
 import { SignInProps } from "#/models/props/auth";
 import { ROUTES } from "#/constants";
+// importa helpers de autenticacao
 import { AUTH } from "#/helpers/Auth";
 
+//inicializa as variaveis de roken e o helper de isAuthenticated
 interface State extends DefaultState {
   isAuthenticated: boolean;
   token: string;
@@ -38,6 +41,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
     password: Yup.string().required("Preencha o campo para continuar."),
   });
 
+  // adiciona os helpers de formulario do formik e seta os valores iniciais dos campos
   const { errors, handleBlur, handleChange, handleSubmit, values, touched } = useFormik<User>({
     initialValues: {
       username: "",
@@ -48,7 +52,8 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
       signIn();
     },
   });
-
+  // define a chamada de signin para a api de autenticação
+  // recebe como resposta o jwntoken
   const signIn = useCallback(() => {
     setState((prev) => ({ ...prev, loading: true }));
     API.AUTH.SIGN_IN(values)
@@ -69,6 +74,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
       });
   }, [values]);
 
+  //verifica se o token existe e é válido
   const afterSignIn = useCallback(() => {
     if (!!state.token && AUTH.IS_VALID(state.token)) {
       AUTH.SIGNIN(state.token);
@@ -90,7 +96,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
       history.push(ROUTES.DASHBOARD());
     }
   }, [history, state.isAuthenticated]);
-
+//adiciona um spinner durante o carregamento da pagina
   return state.loading === true ? (
     <Spinner animation="border" />
   ) : (
