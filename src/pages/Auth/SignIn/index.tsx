@@ -96,11 +96,12 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
       history.push(ROUTES.DASHBOARD());
     }
   }, [history, state.isAuthenticated]);
-//adiciona um spinner durante o carregamento da pagina
+  //adiciona um spinner durante o carregamento da pagina
   return state.loading === true ? (
     <Spinner animation="border" />
   ) : (
     <>
+    {/* adiciona um modal de notificação no caso de erro no login */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className={css["modal-title"]}>Notificacao:</Modal.Title>
@@ -113,11 +114,13 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
         </Modal.Footer>
       </Modal>
       <Container>
+        {/* adiciona o componente de PageHeader passando o titulo como parametro */}
         <PageHeader title={state.title} />
 
         <Form onSubmit={handleSubmit}>
           <Row>
             <Form.Group controlId="username" as={Col}>
+              {/* adiciona o input de username, chama funcoes de tratamento de formulario em branco e invalido */}
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
@@ -129,6 +132,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
                 isInvalid={touched.username && !!errors.username}
               />
               <Form.Control.Feedback type="invalid" tooltip>
+                {/* mostra os erros no campo de username */}
                 {errors.username}
               </Form.Control.Feedback>
             </Form.Group>
