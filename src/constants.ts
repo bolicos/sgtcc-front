@@ -21,6 +21,7 @@ export const ROUTES = {
   STUDENT_DETAILS: (id: string) => `/students/${id}/details`,
   STUDENT_EDIT: (id: string) => `/students/${id}/edit`,
 
+  PROPOSAL_LIST: () => "/proposals/",  
   PROPOSAL_CREATE: () => "/proposals/new",  
   PROPOSAL_DETAILS: (id: string) => `/proposals/${id}/details`,
   PROPOSAL_EDIT: (id: string) => `/proposals/${id}/edit`,

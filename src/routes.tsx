@@ -21,6 +21,7 @@ import StudentDetailsPage from "#/pages/Student/Details";
 import StudentEditPage from "#/pages/Student/Edit";
 
 // Proposal Pages
+import ProposalListPage from "#/pages/Proposal/List";
 import ProposalCreatePage from "#/pages/Proposal/Create";
 import ProposalDetailsPage from "#/pages/Proposal/Details";
 import ProposalEditPage from "#/pages/Proposal/Edit";
@@ -56,25 +57,26 @@ const Routes: React.FC = () => {
         <Route exact path={ROUTES.SIGNIN()} component={SignInPage} />
         <Route exact path={ROUTES.SIGNUP()} component={SignUpPage} />
 
-        <Route exact path={ROUTES.TEACHER_CREATE()} component={TeacherCreatePage} />
-        <Route exact path={ROUTES.TEACHER_DETAILS(":id")} component={TeacherDetailsPage} />
-        <Route exact path={ROUTES.TEACHER_EDIT(":id")} component={TeacherEditPage} />
+        <PrivateRoute exact path={ROUTES.TEACHER_CREATE()} component={TeacherCreatePage} />
+        <PrivateRoute exact path={ROUTES.TEACHER_DETAILS(":id")} component={TeacherDetailsPage} />
+        <PrivateRoute exact path={ROUTES.TEACHER_EDIT(":id")} component={TeacherEditPage} />
 
-        <Route exact path={ROUTES.STUDENT_CREATE()} component={StudentCreatePage} />
-        <Route exact path={ROUTES.STUDENT_DETAILS(":id")} component={StudentDetailsPage} />
-        <Route exact path={ROUTES.STUDENT_EDIT(":id")} component={StudentEditPage} />
+        <PrivateRoute exact path={ROUTES.STUDENT_CREATE()} component={StudentCreatePage} />
+        <PrivateRoute exact path={ROUTES.STUDENT_DETAILS(":id")} component={StudentDetailsPage} />
+        <PrivateRoute exact path={ROUTES.STUDENT_EDIT(":id")} component={StudentEditPage} />
 
-        <Route exact path={ROUTES.PROPOSAL_CREATE()} component={ProposalCreatePage} />
-        <Route exact path={ROUTES.PROPOSAL_DETAILS(":id")} component={ProposalDetailsPage} />
-        <Route exact path={ROUTES.PROPOSAL_EDIT(":id")} component={ProposalEditPage} />
+        <PrivateRoute exact path={ROUTES.PROPOSAL_LIST()} component={ProposalListPage} />
+        <PrivateRoute exact path={ROUTES.PROPOSAL_CREATE()} component={ProposalCreatePage} />
+        <PrivateRoute exact path={ROUTES.PROPOSAL_DETAILS(":id")} component={ProposalDetailsPage} />
+        <PrivateRoute exact path={ROUTES.PROPOSAL_EDIT(":id")} component={ProposalEditPage} />
 
-        <Route exact path={ROUTES.EXAMINATION_CREATE()} component={ExaminationCreatePage} />
-        <Route exact path={ROUTES.EXAMINATION_DETAILS(":id")} component={ExaminationDetailsPage} />
-        <Route exact path={ROUTES.EXAMINATION_EDIT(":id")} component={ExaminationEditPage} />
+        <PrivateRoute exact path={ROUTES.EXAMINATION_CREATE()} component={ExaminationCreatePage} />
+        <PrivateRoute exact path={ROUTES.EXAMINATION_DETAILS(":id")} component={ExaminationDetailsPage} />
+        <PrivateRoute exact path={ROUTES.EXAMINATION_EDIT(":id")} component={ExaminationEditPage} />
 
-        <Route exact path={ROUTES.BOARD_CREATE()} component={BoardCreatePage} />
-        <Route exact path={ROUTES.BOARD_DETAILS(":id")} component={BoardDetailsPage} />
-        <Route exact path={ROUTES.BOARD_EDIT(":id")} component={BoardEditPage} />
+        <PrivateRoute exact path={ROUTES.BOARD_CREATE()} component={BoardCreatePage} />
+        <PrivateRoute exact path={ROUTES.BOARD_DETAILS(":id")} component={BoardDetailsPage} />
+        <PrivateRoute exact path={ROUTES.BOARD_EDIT(":id")} component={BoardEditPage} />
 
         <PrivateRoute exact path={ROUTES.DASHBOARD()} component={Dashboard} />
         <Route path={ROUTES.NOT_FOUND()} component={NotFoundPage} />

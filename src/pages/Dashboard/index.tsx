@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
         </Col>
 
         <Col>
-          <Card style={{ width: "18rem" }} onClick={() => history.push(ROUTES.PROPOSAL_CREATE())}>
+          <Card style={{ width: "18rem" }} onClick={() => history.push(ROUTES.PROPOSAL_LIST())}>
             <FcAnswers size="5em" />
             <Card.Body>
               <Card.Title>Minhas Proposta</Card.Title>

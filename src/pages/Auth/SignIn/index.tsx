@@ -161,9 +161,22 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
             </Form.Group>
           </Row>
 
-          <Button variant="primary" type="submit" className="justify-content-md-center">
-            SignIn
-          </Button>
+          <br></br>
+
+          <div className="buttons-home">
+            <Row>
+              <Col sm={2}>
+                <Button variant="secondary" size="lg" href={ROUTES.HOME()}>
+                  Voltar
+                </Button>
+              </Col>
+              <Col sm={2}>
+                <Button variant="success" size="lg" type="submit">
+                  SignIn
+                </Button>
+              </Col>
+            </Row>
+          </div>
         </Form>
       </Container>
     </>

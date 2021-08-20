@@ -30,7 +30,7 @@ export const AUTH = {
 
     return !!token
       ? ({
-          name: "Student",
+          name: (token as any)?.username,
           username: (token as any)?.username,
           roles: (token as any)?.roles,
         } as UserPrincipal)

@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Row, Col, Container, Button, Form, Spinner } from "react-bootstrap";
 import PageHeader from "#/components/PageHeader";
 import { DefaultState } from "#/models/default";
 import { ProposalDetailsModel } from "#/models/sgtcc";
 import { API } from "#/services/sgtcc";
-import { ROUTES } from "#/constants";
 
 interface State extends DefaultState {
   proposal: ProposalDetailsModel;
 }
 
 export const ProposalDetails: React.FC = () => {
+  const history = useHistory();
   const { id } = useParams<{ id: string }>();
   const [state, setState] = useState<State>({
     loading: true,
@@ -65,7 +65,7 @@ export const ProposalDetails: React.FC = () => {
 
           <Row className="justify-content-md-center">
             <Col sm={2}>
-              <Button variant="secondary" size="lg" href={ROUTES.HOME()}>
+              <Button variant="secondary" size="lg" onClick={() => history.goBack()}>
                 Voltar
               </Button>
             </Col>
