@@ -26,6 +26,7 @@ interface State extends DefaultState {
 export const SignIn: React.FC<SignInProps> = ({ success }) => {
   const history = useHistory();
   const [show, setShow] = useState(false);
+  // inicializa as variaveis de estado 
   const [state, setState] = useState<State>({
     loading: true,
     title: "SignIn",
@@ -93,6 +94,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
 
   useEffect(() => {
     if (state.isAuthenticated) {
+      // verifica se o usuario esta autenticado e se estiver, redireciona para a dashboard
       history.push(ROUTES.DASHBOARD());
     }
   }, [history, state.isAuthenticated]);
@@ -140,6 +142,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
 
           <Row>
             <Form.Group controlId="password" as={Col}>
+              {/* adiciona o input de password, chama funcoes de tratamento de formulario em branco e invalido */}
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -151,6 +154,7 @@ export const SignIn: React.FC<SignInProps> = ({ success }) => {
                 isInvalid={touched.password && !!errors.password}
               />
               <Form.Control.Feedback type="invalid" tooltip>
+                {/* mostra os erros no campo de password */}
                 {errors.password}
               </Form.Control.Feedback>
             </Form.Group>
