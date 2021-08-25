@@ -1,13 +1,12 @@
 // importa os hooks de useEffect, useState, useCallback
 import React, { useEffect, useState, useCallback } from "react";
 import { useFormik } from "formik";
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 // importa os componentes estilizados do react bootstrap
 import { Row, Col, Container, Button, Form, Spinner, Modal } from "react-bootstrap";
 // importa o componente de pageheader
 import PageHeader from "#/components/PageHeader";
-// importa as rotas da aplicacao
-import { ROUTES } from "#/constants";
 import { API } from "#/services/sgtcc";
 // importa a model de student e teacher da aplicacao de sgtcc
 import { StudentDetailsModel, TeacherDetailsModel } from "#/models/sgtcc";
@@ -17,6 +16,7 @@ import { DefaultState } from "#/models/default";
 //importa o arquivo de estilos especifico da pagina
 import css from "./styles.module.scss";
 
+
 //inicializa as variaveis de students e teachers como array da model de students e teachers details
 interface State extends DefaultState {
   students: Array<StudentDetailsModel>;
@@ -24,6 +24,7 @@ interface State extends DefaultState {
 }
 
 export const ProposalCreate: React.FC = () => {
+  const history = useHistory();
   const [show, setShow] = useState(false);
   //inicializa as variaveis de estado
   const [state, setState] = useState<State>({
@@ -198,7 +199,7 @@ export const ProposalCreate: React.FC = () => {
           <Row className="justify-content-md-center">
             <Col sm={2}>
               {/* ao clicar em cancelar é redirecionado para a home */}
-              <Button variant="secondary" size="lg" href={ROUTES.HOME()}>
+              <Button variant="secondary" size="lg" onClick={() => history.goBack()}>
                 Cancelar
               </Button>
             </Col>
