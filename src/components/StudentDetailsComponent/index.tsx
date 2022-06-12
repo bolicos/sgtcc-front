@@ -15,7 +15,7 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({ student, columns
     return (
         <div className={clsx(stylesheet["div"])}>
             <tr>
-                {columns.map((column) => (
+                {columns?.map((column) => (
                     <th>{column.title}</th>
                 ))}
             </tr>
