@@ -5,7 +5,7 @@ You must have installed [Yarn](https://classic.yarnpkg.com/en/docs/install/#debi
 
 ## Install
 Clone this repository:
-`git clone https://github.com/analuciabolico/sgtcc-front.git`
+`git clone https://github.com/bolicos/sgtcc-front.git`
 
 In the project directory, install the dependencies:
 `yarn install`
